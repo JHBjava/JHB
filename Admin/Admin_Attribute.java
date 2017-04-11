@@ -1,6 +1,6 @@
 package JHB.Admin;
-
 import java.awt.Color;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,25 +8,23 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
-import JHB.Class.Staff;
-
-public class Report extends JInternalFrame implements ActionListener {
-	JDesktopPane desktop1 = new JDesktopPane();
+public class Admin_Attribute extends JInternalFrame implements ActionListener {
+	JDesktopPane DesktopPane = new JDesktopPane();
 	
-	public Report() {
-		//Frame
+	public Admin_Attribute() {
 		this.setDefaultCloseOperation(JInternalFrame.EXIT_ON_CLOSE);
 		((BasicInternalFrameUI)this.getUI()).setNorthPane(null);
 		this.setVisible(true);
-		desktop1.setBackground(Color.LIGHT_GRAY);
-		desktop1.setLayout(null);
-		//Add
-		this.add(desktop1);
+		
+		DesktopPane.setBackground(Color.LIGHT_GRAY);
+		DesktopPane.setLayout(new GridBagLayout());
+		
+		this.add(DesktopPane);
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		Staff stf = new Staff();
+		
 	}
 
 }

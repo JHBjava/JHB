@@ -1,4 +1,4 @@
-
+package JHB.Class;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -41,9 +41,9 @@ public class ConnectionJ {
 		    //connection successfully established!
 		    return true;
 		}    
-	//public Connection getCon(){
-	//	return conn;
-	//}
+	public Connection getCon(){
+		return conn;
+	}
 	public void Close(){
 	    
 	    try {
@@ -118,4 +118,3 @@ public class ConnectionJ {
 		}
 		}
 }
-

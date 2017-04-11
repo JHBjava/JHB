@@ -1,4 +1,4 @@
-package abc.Admin;
+package JHB.Admin;
 
 
 
@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+
+import JHB.Class.Staff;
 
 public class Register_Staff extends JInternalFrame implements ActionListener {
 	JDesktopPane desktop1 = new JDesktopPane();

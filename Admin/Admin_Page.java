@@ -1,4 +1,4 @@
-package abc.Admin;
+package JHB.Admin;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

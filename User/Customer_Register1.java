@@ -1,4 +1,4 @@
-package abc.User;
+	package JHB.User;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -11,8 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import abc.Admin.ConnectionJ;
-import abc.Admin.Staff;
+import JHB.Class.ConnectionJ;
+import JHB.Class.Customer;
 
 public class Customer_Register1 extends JFrame implements ActionListener {
 	JPanel panel1 = new JPanel();

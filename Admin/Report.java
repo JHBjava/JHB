@@ -1,11 +1,14 @@
-package abc.Admin;
+package JHB.Admin;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+
+import JHB.Class.Staff;
 
 public class Report extends JInternalFrame implements ActionListener {
 	JDesktopPane desktop1 = new JDesktopPane();
@@ -23,7 +26,7 @@ public class Report extends JInternalFrame implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		
+		Staff stf = new Staff();
 	}
 
 }

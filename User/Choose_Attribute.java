@@ -1,6 +1,4 @@
-package abc.User;
-
-
+package JHB.User;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -19,9 +17,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-
-
-
+import JHB.Class.Attraction;
+import JHB.Class.Attribute;
+import JHB.Class.ConnectionJ;
 
 public class Choose_Attribute extends JFrame implements ActionListener {
 	int i=0;

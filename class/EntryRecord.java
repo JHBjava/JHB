@@ -1,3 +1,5 @@
+package JHB.Class;
+
 import java.util.Date;
 public class EntryRecord {
 	private int entryRecordID;

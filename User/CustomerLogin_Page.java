@@ -1,13 +1,16 @@
-package abc.User;
+package JHB.User;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import JHB.Class.Customer;
 
 public class CustomerLogin_Page extends JFrame implements ActionListener {
 	//Frame

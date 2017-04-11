@@ -1,3 +1,9 @@
+package JHB.Class;
+
+import javax.swing.JFrame;
+
+import JHB.Admin.Admin_Page;
+
 
 public class Staff {
 	private String staffID;
@@ -8,6 +14,15 @@ public class Staff {
 	private String dob;
 	private String address;
 	
+	public Staff() {
+		
+	}
+	
+	public Staff(String staffname, String password) {
+		super();
+		this.password = password;
+		this.staffname = staffname;
+	}
 	public Staff( String password, String staffname,
 			String gender, String dob, String address) {
 		super();
@@ -55,8 +70,44 @@ public class Staff {
 		this.address = address;
 	}
 	
+	public void toString1() {
+		ConnectionJ conn = new ConnectionJ();
+		if (conn.Open("inchi")){
+			if (conn.Open("inchi")){
+				
+				//	String queryString = "insert into staff"+"(username, password) values"+ "(username, password)";
+						  conn.Update("insert into staff(pass_word, staff_name, gender, dob, address)" + "values ('"+password+"', '"+staffname+"', '"+gender+"','"+dob+"', '"+address+"')");                          
+					   conn.Clear();            
+				        conn.Close(); 	
+					}
+		}
+	}
+	public void toString2() {
+		ConnectionJ conn = new ConnectionJ();
+		 try{
+			 if(conn.Open("inchi")){
+				 if(conn.Query("select * from staff where staff_name ='"+staffname+"' and pass_word ='" +password+"'")){	 
+					 if(conn.EOF() == false){
+						 JFrame Admin_Page = new Admin_Page();
+								
+					 
+		 }   
+					 conn.Clear();
+				 }
+			 }
+			 
+
+		 }   catch(Exception e2){
+	       
+	       System.out.println("Error!!!");   
+	       
+	}
+		 conn.Close();
+		 conn = null;
+	}
 	
 	
 	
 
 }
+

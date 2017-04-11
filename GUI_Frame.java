@@ -1,7 +1,7 @@
-package abc;
+package JHB;
 
-import abc.Admin.AdminLogin_Page;
-import abc.User.CustomerLogin_Page;
+import JHB.Admin.AdminLogin_Page;
+import JHB.User.CustomerLogin_Page;
 
 public class GUI_Frame{
 

@@ -1,3 +1,6 @@
+package JHB.Class;
+
+import javax.swing.JFrame;
 
 public class Attraction {
 	private int attractionID;
@@ -10,6 +13,14 @@ public class Attraction {
 	private int minimumWeight;
 	private int duration;
 	private int price;
+	
+	public Attraction() {
+		super();
+	}
+	public Attraction(String attractionName) {
+		super();
+		this.attractionName = attractionName;
+	}
 	private String status;
 	public int getAttractionID() {
 		return attractionID;
@@ -77,8 +88,27 @@ public class Attraction {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	/*public void toString3(){
+		ConnectionJ conn = new ConnectionJ();
+
+			try{
+
+		        if (conn.Open("inchi")) {
+		          if (conn.Query("select * from customer where customer_name ='"+customerName+"'")) {
+		            if (conn.EOF()== false) {
+				JFrame ChooseAttribute = new Choose_Attribute(customerName);
+			}
+		          }
+		        }
+			}
+			catch(Exception e2) {
+			      
+			       System.out.println("Error");
+			}
+
+			       conn.Close();
+			       conn=null;
+		
+	}*/
 	
 }
-
-
-

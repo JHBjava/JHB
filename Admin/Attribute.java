@@ -1,4 +1,4 @@
-package abc.Admin;
+package JHB.Admin;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

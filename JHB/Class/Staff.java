@@ -1,4 +1,4 @@
-package Class;
+package JHB.Class;
 
 import javax.swing.JFrame;
 

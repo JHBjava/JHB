@@ -1,4 +1,4 @@
-package Class;
+package JHB.Class;
 
 public class Attraction {
 	private int attractionID;

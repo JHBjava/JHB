@@ -15,8 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Class.Customer;
-
 public class User_Login extends JFrame implements ActionListener {
 	JPanel P = new JPanel();
 	GridBagConstraints GBC = new GridBagConstraints();

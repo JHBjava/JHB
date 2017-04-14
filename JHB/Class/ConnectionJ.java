@@ -2,41 +2,34 @@ package JHB.Class;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.*;
 
 public class ConnectionJ {
 	private Connection conn;
 	private PreparedStatement Ps = null;
-	
 	public ResultSet Rs = null;
 	
 	public boolean Open(String sDB) {
 		//atempt to load the jdbc.obdc driver
-		String url = "jdbc:sqlserver://TANBENGYAW;databaseName=inchi;"
-		+ "integratedSecurity=true";
+		String url = "jdbc:sqlserver://LAPTOP-HighPro\\SQLEXPRESS;databaseName=inchi;integratedSecurity=true";
 		try {
-			// Class.forName(DEFAULT_DRIVER);
+			//Class.forName(DEFAULT_DRIVER);
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		}catch(Exception e) {
 			System.err.print("Driver Jdbc.open(): " + e.getMessage());
 			return false;
 		}
-
 		//attempt to open the database
 		try {
 			conn = DriverManager.getConnection(url);
 		}catch(Exception e) {
-			System.err.print("Database0 jdbc.Open(): " + e.getMessage());
+			System.err.print("Database jdbc.Open(): " + e.getMessage());
 			return false;
 		}
-		  
 		//connection successfully established!
 		return true;
-	}
-	
-	public Connection getCon(){
-		return conn;
 	}
 	
 	public void Close(){
@@ -52,7 +45,7 @@ public class ConnectionJ {
 	private static String DEFAULT_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	
 	public boolean Query(String sSQL) {
-		if( (Rs!=null) || (Ps!=null) ) {
+		if((Rs!=null) || (Ps!=null)) {
 			System.err.println("Jdbc.Query(): Clear() was not performed!?");
 			return false;
 		} 
@@ -101,7 +94,7 @@ public class ConnectionJ {
 			if(Ps!=null)
 				Ps.close();
 		}catch(Exception e){
-		
+			
 		}finally{
 			Rs = null;
 			Ps = null;

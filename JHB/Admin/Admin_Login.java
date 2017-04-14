@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import JHB.Class.Staff;
+
 public class Admin_Login extends JFrame implements ActionListener {
 	JPanel P = new JPanel();
 	GridBagConstraints GBC = new GridBagConstraints();
@@ -24,6 +26,7 @@ public class Admin_Login extends JFrame implements ActionListener {
 	JTextField TF1 = new JTextField();
 	JLabel LB4 = new JLabel("Password:");
 	JPasswordField PWF1 = new JPasswordField();
+	JLabel LB5 = new JLabel("");
 	JButton BT1 = new JButton("Login");
 	JButton BT2 = new JButton("EXIT");
 	
@@ -43,6 +46,7 @@ public class Admin_Login extends JFrame implements ActionListener {
 		TF1.setFont(new Font("Serif", Font.BOLD, 25));
 		LB4.setFont(new Font("Serif", Font.BOLD, 25));
 		PWF1.setFont(new Font("Serif", Font.BOLD, 25));
+		LB5.setFont(new Font("Serif", Font.BOLD, 25));
 		BT1.setFont(new Font("Serif", Font.BOLD, 25));
 		BT2.setFont(new Font("Serif", Font.BOLD, 25));
 		
@@ -75,6 +79,11 @@ public class Admin_Login extends JFrame implements ActionListener {
 		GBC.gridwidth = 3;
 		GBC.fill = GridBagConstraints.HORIZONTAL;
 		P.add(PWF1, GBC);
+		GBC.gridx = 0;
+		GBC.gridy = 4;
+		GBC.gridwidth = 5;
+		GBC.fill = GridBagConstraints.HORIZONTAL;
+		P.add(LB5, GBC);
 		GBC.gridx = 1;
 		GBC.gridy = 3;
 		GBC.gridwidth = 1;
@@ -88,8 +97,16 @@ public class Admin_Login extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		//Login
 		if(arg0.getSource() == BT1) {
-			JFrame AdminFunction = new Admin_Function();
-			this.dispose();
+			Staff st = new Staff(TF1.getText(), PWF1.getText().toString());
+			
+			if(st.StaffData() == true) {
+				JFrame AdminFunction = new Admin_Function();
+				this.dispose();
+			}else {
+				TF1.setText("");
+				PWF1.setText("");
+				LB5.setText("Please reinsert your user name and password!");
+			}
 		}
 		//Exit
 		if(arg0.getSource() == BT2) {

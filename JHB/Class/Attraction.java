@@ -12,7 +12,7 @@ public class Attraction {
 	private int duration;
 	private int price;
 	private String status;
-	
+	//hi
 	public Attraction() {
 		
 	}

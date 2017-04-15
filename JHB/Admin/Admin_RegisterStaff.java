@@ -129,12 +129,7 @@ public class Admin_RegisterStaff extends JInternalFrame implements ActionListene
 	public void actionPerformed(ActionEvent arg0) {
 		//Register
 		if(arg0.getSource() == BT1) {
-            String staffname = TF1.getText();
-            String staffpassword = PWF1.getText().toString();
-            String gender = TF2.getText();
-            String dob = TF3.getText();
-            String address = TF4.getText();
-            Staff st = new Staff(staffname, staffpassword, gender, dob, address);
+            Staff st = new Staff(TF1.getText(), PWF1.getText().toString(), TF2.getText(), TF3.getText(), TF4.getText());
             
             if(st.AddStaff() == true) {
             	LB8.setText("Add Staff Success!");

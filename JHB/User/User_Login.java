@@ -42,6 +42,7 @@ public class User_Login extends JFrame implements ActionListener {
 		LB1.setFont(new Font("Serif", Font.BOLD, 35));
 		LB2.setFont(new Font("Serif", Font.BOLD, 35));
 		LB3.setFont(new Font("Serif", Font.BOLD, 25));
+		LB4.setFont(new Font("Serif", Font.BOLD, 25));
 		TF1.setFont(new Font("Serif", Font.BOLD, 25));
 		BT1.setFont(new Font("Serif", Font.BOLD, 25));
 		BT2.setFont(new Font("Serif", Font.BOLD, 25));

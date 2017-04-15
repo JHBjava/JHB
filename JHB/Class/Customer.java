@@ -5,18 +5,24 @@ import javax.swing.JFrame;
 import JHB.User.User_Function;
 
 public class Customer {
-	private String customerID;
 	private String customerName;
+	private String customeric;
 	private String dateOfBirth;
 	private String gender;
 	private String nationally;
 	private int weight;
 	private int height;
 	
-	public Customer(String customerName) {
-		this.customerName = customerName;
+	
+	
+	public Customer(String customeric) {
+		this.customeric = customeric;
 	}
 	
+	public Customer(){
+		
+	}
+
 	public Customer(String customerName, String dateOfBirth, String gender, String nationally, int weight, int height) {
 		this.customerName = customerName;
 		this.dateOfBirth = dateOfBirth;
@@ -34,21 +40,21 @@ public class Customer {
 			conn.Update("insert into customer(customer_name, dob, gender, nationality, weight, height)" +
 					"values ('" + customerName + "', '" + dateOfBirth + "','" + gender + "', '" +
 					nationally + "', " + weight + ", " + height + ")");
-			JFrame ChooseAttribute = new User_Function(customerName);
 			System.out.println("suceeful");
 			conn.Clear();
 			conn.Close();
 		}
 	}
 	
-	public void SearchCustomer(){
+	public boolean customerData(){
 		ConnectionJ conn = new ConnectionJ();
-		
+		boolean BL = false;
 		try{
 			if (conn.Open("inchi")) {
-				if (conn.Query("select * from customer where customer_name ='"+customerName+"'")) {
+				if (conn.Query("select * from customer where ic ='"+customeric+"'")) {
 					if (conn.EOF()== false) {
-						JFrame ChooseAttribute = new User_Function(customerName);
+						BL = true;
+						
 					}
 				}
 			}
@@ -57,14 +63,7 @@ public class Customer {
 		}
 		conn.Close();
 		conn=null;
-	}
-
-	public String getCustomerID() {
-		return customerID;
-	}
-
-	public void setCustomerID(String customerID) {
-		this.customerID = customerID;
+		return BL;
 	}
 
 	public String getCustomerName() {
@@ -114,4 +113,13 @@ public class Customer {
 	public void setHeight(int height) {
 		this.height = height;
 	}
+
+	public String getCustomeric() {
+		return customeric;
+	}
+
+	public void setCustomeric(String customeric) {
+		this.customeric = customeric;
+	}
+	
 }

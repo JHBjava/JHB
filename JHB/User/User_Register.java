@@ -21,16 +21,18 @@ public class User_Register extends JFrame implements ActionListener {
 	JLabel LB1 = new JLabel("Register");
 	JLabel LB2 = new JLabel("Name:");
 	JTextField TF1 = new JTextField();
-	JLabel LB3 = new JLabel("Date Of Birth:");
+	JLabel LB3 = new JLabel("IC:");
 	JTextField TF2 = new JTextField();
-	JLabel LB4 = new JLabel("Gender:");
+	JLabel LB4 = new JLabel("Date Of Birth:");
 	JTextField TF3 = new JTextField();
-	JLabel LB5 = new JLabel("Nationality:");
+	JLabel LB5 = new JLabel("Gender:");
 	JTextField TF4 = new JTextField();
-	JLabel LB6 = new JLabel("Weight(KG):");
+	JLabel LB6 = new JLabel("Nationality:");
 	JTextField TF5 = new JTextField();
-	JLabel LB7 = new JLabel("Height(CM):");
+	JLabel LB7 = new JLabel("Weight(KG):");
 	JTextField TF6 = new JTextField();
+	JLabel LB8 = new JLabel("Height(CM):");
+	JTextField TF7 = new JTextField();
 	JButton BT1 = new JButton("Register");
 	JButton BT2 = new JButton("Cancel");
 	
@@ -57,6 +59,8 @@ public class User_Register extends JFrame implements ActionListener {
 		TF5.setFont(new Font("Serif", Font.BOLD, 25));
 		LB7.setFont(new Font("Serif", Font.BOLD, 25));
 		TF6.setFont(new Font("Serif", Font.BOLD, 25));
+		LB8.setFont(new Font("Serif", Font.BOLD, 25));
+		TF7.setFont(new Font("Serif", Font.BOLD, 25));
 		BT1.setFont(new Font("Serif", Font.BOLD, 25));
 		BT2.setFont(new Font("Serif", Font.BOLD, 25));
 		
@@ -122,12 +126,21 @@ public class User_Register extends JFrame implements ActionListener {
 		GBC.gridwidth = 3;
 		GBC.fill = GridBagConstraints.HORIZONTAL;
 		P.add(TF6, GBC);
+		GBC.gridx = 0;
+		GBC.gridy = 7;
+		GBC.gridwidth = 1;
+		P.add(LB8, GBC);
 		GBC.gridx = 1;
 		GBC.gridy = 7;
+		GBC.gridwidth = 3;
+		GBC.fill = GridBagConstraints.HORIZONTAL;
+		P.add(TF7, GBC);
+		GBC.gridx = 1;
+		GBC.gridy = 8;
 		GBC.gridwidth = 1;
 		P.add(BT1, GBC);
 		GBC.gridx = 3;
-		GBC.gridy = 7;
+		GBC.gridy = 8;
 		P.add(BT2, GBC);
 	}
 	

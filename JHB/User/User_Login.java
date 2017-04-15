@@ -15,12 +15,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import JHB.Class.Customer;
+
 public class User_Login extends JFrame implements ActionListener {
 	JPanel P = new JPanel();
 	GridBagConstraints GBC = new GridBagConstraints();
 	JLabel LB1 = new JLabel("User");
 	JLabel LB2 = new JLabel("Login");
-	JLabel LB3 = new JLabel("User Name:");
+	JLabel LB3 = new JLabel("User IC:");
+	JLabel LB4 = new JLabel("");
 	JTextField TF1 = new JTextField();
 	JButton BT1 = new JButton("Register");
 	JButton BT2 = new JButton("Login");
@@ -75,6 +78,11 @@ public class User_Login extends JFrame implements ActionListener {
 		GBC.gridx = 4;
 		GBC.gridy = 4;
 		P.add(BT3, GBC);
+		GBC.gridx = 0;
+		GBC.gridy = 4;
+		GBC.gridwidth = 4;
+		GBC.fill = GridBagConstraints.HORIZONTAL;
+		P.add(LB4, GBC);
 	}
 
 	@Override
@@ -86,8 +94,14 @@ public class User_Login extends JFrame implements ActionListener {
 		}
 		//Login
 		if(arg0.getSource() == BT2) {
-			JFrame UserFunction = new User_Function(TF1.getText());
-			this.dispose();
+			Customer ct = new Customer(TF1.getText());
+			if(ct.customerData() == true) {
+				JFrame UserFunction = new User_Function(TF1.getText());
+				this.dispose();
+			}else {
+				TF1.setText("");
+				LB4.setText("Please reinsert your ic number");
+			}
 		}
 		//Exit
 		if(arg0.getSource() == BT3) {

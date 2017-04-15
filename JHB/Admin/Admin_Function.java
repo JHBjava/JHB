@@ -24,6 +24,8 @@ public class Admin_Function extends JFrame implements ActionListener {
 	JButton BT4 = new JButton("Logout");
 	
 	JInternalFrame RegisterStaff = new Admin_RegisterStaff();
+	JInternalFrame Attribute = new Admin_Attribute();
+	JInternalFrame Report = new Admin_Report();
 	
 	public Admin_Function() {
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -92,10 +94,8 @@ public class Admin_Function extends JFrame implements ActionListener {
 			BT2.setBackground(Color.LIGHT_GRAY);
 			BT3.setBackground(Color.GRAY);
 			
-			
 			DesktopPane.removeAll();
 			DesktopPane.repaint();
-			JInternalFrame Attribute = new Admin_Attribute();
 			DesktopPane.add(Attribute, BorderLayout.CENTER);
 		}
 		//Report
@@ -104,7 +104,6 @@ public class Admin_Function extends JFrame implements ActionListener {
 			BT2.setBackground(Color.GRAY);
 			BT3.setBackground(Color.LIGHT_GRAY);
 			
-			JInternalFrame Report = new Admin_Report();
 			DesktopPane.removeAll();
 			DesktopPane.repaint();
 			DesktopPane.add(Report, BorderLayout.CENTER);

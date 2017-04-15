@@ -6,8 +6,8 @@ public class GUI {
 
 	public static void main(String[] args) {
 		//javax.swing.JFrame AdminLogin = new Admin_Login();
-		//javax.swing.JFrame UserLogin = new User_Login();
-		javax.swing.JFrame UserLogin = new Admin_Login();
+		javax.swing.JFrame UserLogin = new User_Login();
+		//javax.swing.JFrame UserLogin = new Admin_Login();
 	}
 
 }

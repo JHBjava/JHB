@@ -95,6 +95,7 @@ public class Admin_Function extends JFrame implements ActionListener {
 			
 			DesktopPane.removeAll();
 			DesktopPane.repaint();
+			
 			JInternalFrame Attribute = new Admin_Attribute();
 			DesktopPane.add(Attribute, BorderLayout.CENTER);
 		}

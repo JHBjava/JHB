@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 
 public class User_Function extends JFrame implements ActionListener {
 	
-	public User_Function(String name) {
-		
+	public User_Function() {
+		System.out.println("okk");
 	}
 
 	@Override

@@ -81,6 +81,7 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 	public Admin_Attribute() {
 		
 		
+	/*	((BasicInternalFrameUI)this.getUI()).setNorthPane(null);*/
 		
 		DesktopPane.setBackground(Color.LIGHT_GRAY);
 		DesktopPane.setLayout(new GridBagLayout());
@@ -91,8 +92,8 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 		    add(pane, BorderLayout.NORTH);
 		   
 		   
-		    /*GBC.insets = new Insets(5, 5, 5, 5);*/
-		    
+		  
+		    jc1.setFont(new Font("Serif", Font.BOLD, 15));
 		    l1.setFont(new Font("Serif", Font.BOLD, 35));
 		    
 			l2.setFont(new Font("Serif", Font.BOLD, 35));
@@ -128,7 +129,7 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 			/*GBC.weightx = 0.5;*/
 			
 			GBC.anchor = GridBagConstraints.NORTHWEST;
-			GBC.insets = new Insets(30,30,0,0);
+			GBC.insets = new Insets(100,0,0,0);
 			 panel1.add(jc1,GBC);
 			 panel1.add(jc2,GBC);
 
@@ -234,19 +235,20 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 			///////////////////////////
 			
 			DesktopPane.add(pane);
-			/*setDefaultCloseOperation(JInternalFrame.EXIT_ON_CLOSE);*/
+			setDefaultCloseOperation(JInternalFrame.EXIT_ON_CLOSE);
 			
-				/*((BasicInternalFrameUI)this.getUI()).setNorthPane(null);
+				
 		
-				 this.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
+				/* this.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
 				
 		          boolean isHidden = true; 
 		          isHidden = true; */
 		add(DesktopPane);
 		setResizable(true);
-	      setMaximizable(true);
-	      setClosable(true);
-	      setVisible(true);
+	    setMaximizable(true);
+	    setClosable(true);
+	    setVisible(true);
+	 
 	    
 	}
 

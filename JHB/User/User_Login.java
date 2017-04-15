@@ -15,6 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import JHB.Admin.Admin_Function;
+import JHB.Class.Customer;
+import JHB.Class.Staff;
+
 public class User_Login extends JFrame implements ActionListener {
 	JPanel P = new JPanel();
 	GridBagConstraints GBC = new GridBagConstraints();
@@ -86,8 +90,20 @@ public class User_Login extends JFrame implements ActionListener {
 		}
 		//Login
 		if(arg0.getSource() == BT2) {
-			JFrame UserFunction = new User_Function(TF1.getText());
-			this.dispose();
+			Customer ct = new Customer(TF1.getText());
+			if(ct.customerData() == true) {
+				/*JFrame AdminFunction = new Admin_Function();*/
+				JFrame UserFunction = new User_Function();
+				this.dispose();
+				System.out.println(ct.customerData());
+				
+			}else {
+				TF1.setText("");
+				
+				
+			}
+			
+			
 		}
 		//Exit
 		if(arg0.getSource() == BT3) {

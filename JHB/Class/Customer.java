@@ -10,7 +10,6 @@ public class Customer {
 	private String dateOfBirth;
 	private String gender;
 	private String nationally;
-	private Attribute attribute;
 	private int weight;
 	private int height;
 	
@@ -27,7 +26,7 @@ public class Customer {
 		this.height = height;
 	}
 	
-	public void toString1(){
+	public void AddCustomer(){
 		ConnectionJ conn = new ConnectionJ();
 		
 		if (conn.Open("inchi")){
@@ -42,7 +41,7 @@ public class Customer {
 		}
 	}
 	
-	public void toString2(){
+	public void SearchCustomer(){
 		ConnectionJ conn = new ConnectionJ();
 		
 		try{
@@ -98,14 +97,6 @@ public class Customer {
 
 	public void setNationally(String nationally) {
 		this.nationally = nationally;
-	}
-
-	public Attribute getAttribute() {
-		return attribute;
-	}
-
-	public void setAttribute(Attribute attribute) {
-		this.attribute = attribute;
 	}
 
 	public int getWeight() {

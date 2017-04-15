@@ -86,7 +86,7 @@ public class Admin_Function extends JFrame implements ActionListener {
 			DesktopPane.repaint();
 			DesktopPane.add(RegisterStaff, BorderLayout.CENTER);
 		}
-		//Attraction
+		//Attribute
 		if (arg0.getSource() == BT2) {
 			BT1.setBackground(Color.GRAY);
 			BT2.setBackground(Color.LIGHT_GRAY);

@@ -1,9 +1,5 @@
 package JHB.Class;
 
-import javax.swing.JFrame;
-
-import JHB.Admin.Admin_Function;
-
 public class Staff {
 	private String staffID;
 	private String password;
@@ -17,13 +13,13 @@ public class Staff {
 	}
 	
 	public Staff(String staffname, String password) {
-		this.password = password;
 		this.staffname = staffname;
+		this.password = password;
 	}
 	
-	public Staff( String password, String staffname, String gender, String dob, String address) {
-		this.password = password;
+	public Staff(String staffname, String password, String gender, String dob, String address) {
 		this.staffname = staffname;
+		this.password = password;
 		this.gender = gender;
 		this.dob = dob;
 		this.address = address;
@@ -77,35 +73,42 @@ public class Staff {
 		this.address = address;
 	}
 	
-	public void toString1() {
+	public boolean AddStaff() {
 		ConnectionJ conn = new ConnectionJ();
+		boolean BL = false;
 		
-		if (conn.Open("inchi")){
+		try {
 			if (conn.Open("inchi")){
-				//	String queryString = "insert into staff"+"(username, password) values"+ "(username, password)";
-				conn.Update("insert into staff(pass_word, staff_name, gender, dob, address)" + "values ('"+password+"', '"+staffname+"', '"+gender+"','"+dob+"', '"+address+"')");                          
-				conn.Clear();            
-				conn.Close(); 	
+				conn.Update("insert into staff(staff_name, pass_word, gender, dob, address) values ('"
+						+ staffname + "', '" + password + "', '" + gender + "','" + dob + "', '" + address + "')");
+				BL = true;
 			}
+		}catch(Exception e) {
+			BL = false;
 		}
+		conn.Clear();
+		conn.Close();
+		return BL;
 	}
 	
-	public void toString2() {
+	public boolean StaffData() {
 		ConnectionJ conn = new ConnectionJ();
+		boolean BL = false;
 		
 		try{
 			if(conn.Open("inchi")){
-				if(conn.Query("select * from staff where staff_name ='"+staffname+"' and pass_word ='" +password+"'")){	 
-					if(conn.EOF() == false){
-						JFrame Admin_Page = new Admin_Function();
-					}   
-					conn.Clear();
+				if(conn.Query("select * from staff where staff_name ='" + staffname + "' and pass_word ='" + password + "'")){
+					if(conn.EOF() == false) {
+						BL = true;
+					}
 				}
 			}
-		}catch(Exception e2){
+		}catch(Exception e) {
 			System.out.println("Error!!!");
 		}
+		conn.Clear();
 		conn.Close();
 		conn = null;
+		return BL;
 	}
 }

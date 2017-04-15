@@ -15,17 +15,19 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
+import JHB.Class.Staff;
 
 public class Admin_RegisterStaff extends JInternalFrame implements ActionListener {
 	JDesktopPane DesktopPane = new JDesktopPane();
 	GridBagConstraints GBC = new GridBagConstraints();
 	JLabel LB1 = new JLabel("Register");
 	JLabel LB2 = new JLabel("Staff");
-	JLabel LB3 = new JLabel("User Name: ");
-	JLabel LB4 = new JLabel("Password: ");
-	JLabel LB5 = new JLabel("IC: ");
-	JLabel LB6 = new JLabel("Age: ");
-	JLabel LB7 = new JLabel("Address: ");
+	JLabel LB3 = new JLabel("User Name:");
+	JLabel LB4 = new JLabel("Password:");
+	JLabel LB5 = new JLabel("Gender:");
+	JLabel LB6 = new JLabel("Date of Birth:");
+	JLabel LB7 = new JLabel("Address:");
+	JLabel LB8 = new JLabel("");
 	JPasswordField PWF1 = new JPasswordField();
 	JTextField TF1 = new JTextField();
 	JTextField TF2 = new JTextField();
@@ -47,6 +49,7 @@ public class Admin_RegisterStaff extends JInternalFrame implements ActionListene
 		LB5.setFont(new Font("Serif", Font.BOLD, 30));
 		LB6.setFont(new Font("Serif", Font.BOLD, 30));
 		LB7.setFont(new Font("Serif", Font.BOLD, 30));
+		LB8.setFont(new Font("Serif", Font.BOLD, 30));
 		PWF1.setFont(new Font("Serif", Font.BOLD, 30));
 		TF1.setFont(new Font("Serif", Font.BOLD, 30));
 		TF2.setFont(new Font("Serif", Font.BOLD, 30));
@@ -105,6 +108,11 @@ public class Admin_RegisterStaff extends JInternalFrame implements ActionListene
 		GBC.gridy = 5;
 		GBC.gridwidth = 1;
 		DesktopPane.add(LB7, GBC);
+		GBC.gridx = 0;
+		GBC.gridy = 7;
+		GBC.gridwidth = 4;
+		GBC.fill = GridBagConstraints.HORIZONTAL;
+		DesktopPane.add(LB8, GBC);
 		GBC.gridx = 1;
 		GBC.gridy = 5;
 		GBC.gridwidth = 3;
@@ -121,7 +129,18 @@ public class Admin_RegisterStaff extends JInternalFrame implements ActionListene
 	public void actionPerformed(ActionEvent arg0) {
 		//Register
 		if(arg0.getSource() == BT1) {
-			
+            String staffname = TF1.getText();
+            String staffpassword = PWF1.getText().toString();
+            String gender = TF2.getText();
+            String dob = TF3.getText();
+            String address = TF4.getText();
+            Staff st = new Staff(staffname, staffpassword, gender, dob, address);
+            
+            if(st.AddStaff() == true) {
+            	LB8.setText("Add Staff Success!");
+            }else {
+            	LB8.setText("Add Staff Fail!");
+            }
 		}
 	}
 

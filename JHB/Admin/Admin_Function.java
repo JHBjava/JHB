@@ -92,9 +92,10 @@ public class Admin_Function extends JFrame implements ActionListener {
 			BT2.setBackground(Color.LIGHT_GRAY);
 			BT3.setBackground(Color.GRAY);
 			
-			JInternalFrame Attribute = new Admin_Attribute();
+			
 			DesktopPane.removeAll();
 			DesktopPane.repaint();
+			JInternalFrame Attribute = new Admin_Attribute();
 			DesktopPane.add(Attribute, BorderLayout.CENTER);
 		}
 		//Report

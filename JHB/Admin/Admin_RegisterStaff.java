@@ -15,6 +15,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
+
 public class Admin_RegisterStaff extends JInternalFrame implements ActionListener {
 	JDesktopPane DesktopPane = new JDesktopPane();
 	GridBagConstraints GBC = new GridBagConstraints();

@@ -31,12 +31,12 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 	ImageIcon iconLogo2 = new ImageIcon("src/JHB/children/Flying Ace Balloon Race.jpg");
 	ImageIcon iconLogo3 = new ImageIcon("src/JHB/children/Linus' Beetle Bugs.jpg");
 	ImageIcon iconLogo4 = new ImageIcon("src/JHB/children/Linus Launcher.jpg");
-	ImageIcon iconLogo5 = new ImageIcon("src/JHB/children/Lucy's Tugboat.jpg");
+	ImageIcon iconLogo5 = new ImageIcon("src/JHB/children/Lucys Tugboat.jpg");
 	ImageIcon iconLogo6 = new ImageIcon("src/JHB/children/Pirate train.jpg");
 	ImageIcon iconLogo7 = new ImageIcon("src/JHB/thrill/Delirium.jpg");
 	ImageIcon iconLogo8 = new ImageIcon("src/JHB/thrill/drowtower.jpg");
 	ImageIcon iconLogo9 = new ImageIcon("src/JHB/thrill/Monsoon 360.jpg");
-	ImageIcon iconLogo10 = new ImageIcon("src/JHB/thrill/Roller coasters.jpg");
+	ImageIcon iconLogo10 = new ImageIcon("src/JHB/thrill/Roller coasters .jpg");
 	ImageIcon iconLogo11 = new ImageIcon("src/JHB/thrill/thrillcone.jpg");
 	ImageIcon iconLogo12 = new ImageIcon("src/JHB/thrill/Vortex.jpg");
 	
@@ -62,11 +62,11 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 	JLabel l16 = new JLabel("3");
 	JLabel l17 = new JLabel("10");
 	
-	JLabel l18 = new JLabel("Name?:");
-	JLabel l19 = new JLabel("Min Age:");
-	JLabel l20 = new JLabel("Max Weight:");
-	JLabel l21 = new JLabel("Duration:");
-	JLabel l22 = new JLabel("Price:");
+	JLabel l18 = new JLabel("deliriun");
+	JLabel l19 = new JLabel("18");
+	JLabel l20 = new JLabel("80kg");
+	JLabel l21 = new JLabel("5min");
+	JLabel l22 = new JLabel("RM15");
 	
 	
 	String children_attracion[]={"cosmic coaster",
@@ -256,6 +256,7 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
             	
             	
             }
+		}
             if(arg0.getSource()==jc2) {
             	 if (jc2.getSelectedIndex() == 0) {
                  	
@@ -326,10 +327,10 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
             	
             }
             
-           
+	
            
          
-} // end of if
+
 	}
 
 }

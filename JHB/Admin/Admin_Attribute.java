@@ -71,7 +71,7 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 	
 	String children_attracion[]={"cosmic coaster",
 								"Flying Ace Balloon Race",
-								" linus launcher",
+								"linus launcher",
 								"linus beetle bug",
 								"lucy tugboat",
 								"pirate train"};

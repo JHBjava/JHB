@@ -1,9 +1,5 @@
 package JHB.Class;
 
-import javax.swing.JFrame;
-
-import JHB.User.User_Function;
-
 public class Customer {
 	private int customerID;
 	private String customerName;

@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import JHB.Class.Customer;
+import JHB.Class.EntryRecord;
 
 public class User_Function extends JFrame implements ActionListener {
 	GridBagConstraints GBC = new GridBagConstraints();
@@ -56,7 +57,9 @@ public class User_Function extends JFrame implements ActionListener {
 	JCheckBox CB11 = new JCheckBox("Thrillcone");
 	JCheckBox CB12 = new JCheckBox("Vortex");
 	
-	String[] arr = new String[11];
+	String[] arr1 = new String[11];
+	double[] arr2 = new double[11];
+	String cic = null;
 	int i = 0;
 	
 	public User_Function(String ic) {
@@ -97,6 +100,7 @@ public class User_Function extends JFrame implements ActionListener {
 		CB11.setFont(new Font("Serif", Font.BOLD, 25));
 		CB12.setFont(new Font("Serif", Font.BOLD, 25));
 		
+		cic = ic;
 		Customer ctm = new Customer(ic);
 		ctm.setData(ic);
 		if(ctm.getHeight() < 100 || ctm.getWeight() > 30) {
@@ -225,8 +229,9 @@ public class User_Function extends JFrame implements ActionListener {
 		//Buy Ticket
 		if(arg0.getSource() == BT1) {
 			int ii = 0;
-			while(ii < arr.length) {
-				
+			while(ii < i) {
+				EntryRecord ER = new EntryRecord(arr1[ii], cic, arr2[ii]);
+				ER.insertData();
 				ii++;
 			}
 		}
@@ -238,7 +243,8 @@ public class User_Function extends JFrame implements ActionListener {
 		//Combo box
 		if(arg0.getSource() == CB1) {
 			if(CB1.isSelected()) {
-				arr[i] = CB1.getText();
+				arr1[i] = CB1.getText();
+				arr2[i] = 10;
 				i++;
 			}else {
 				i--;
@@ -246,7 +252,8 @@ public class User_Function extends JFrame implements ActionListener {
 		}
 		if(arg0.getSource() == CB2) {
 			if(CB2.isSelected()) {
-				arr[i] = CB2.getText();
+				arr1[i] = CB2.getText();
+				arr2[i] = 10;
 				i++;
 			}else {
 				i--;
@@ -254,7 +261,8 @@ public class User_Function extends JFrame implements ActionListener {
 		}
 		if(arg0.getSource() == CB3) {
 			if(CB3.isSelected()) {
-				arr[i] = CB3.getText();
+				arr1[i] = CB3.getText();
+				arr2[i] = 7;
 				i++;
 			}else {
 				i--;
@@ -262,7 +270,8 @@ public class User_Function extends JFrame implements ActionListener {
 		}
 		if(arg0.getSource() == CB4) {
 			if(CB4.isSelected()) {
-				arr[i] = CB4.getText();
+				arr1[i] = CB4.getText();
+				arr2[i] = 10;
 				i++;
 			}else {
 				i--;
@@ -270,7 +279,8 @@ public class User_Function extends JFrame implements ActionListener {
 		}
 		if(arg0.getSource() == CB5) {
 			if(CB5.isSelected()) {
-				arr[i] = CB5.getText();
+				arr1[i] = CB5.getText();
+				arr2[i] = 5;
 				i++;
 			}else {
 				i--;
@@ -278,7 +288,8 @@ public class User_Function extends JFrame implements ActionListener {
 		}
 		if(arg0.getSource() == CB6) {
 			if(CB6.isSelected()) {
-				arr[i] = CB6.getText();
+				arr1[i] = CB6.getText();
+				arr2[i] = 5;
 				i++;
 			}else {
 				i--;
@@ -286,7 +297,8 @@ public class User_Function extends JFrame implements ActionListener {
 		}
 		if(arg0.getSource() == CB7) {
 			if(CB7.isSelected()) {
-				arr[i] = CB7.getText();
+				arr1[i] = CB7.getText();
+				arr2[i] = 15;
 				i++;
 			}else {
 				i--;
@@ -294,7 +306,8 @@ public class User_Function extends JFrame implements ActionListener {
 		}
 		if(arg0.getSource() == CB8) {
 			if(CB8.isSelected()) {
-				arr[i] = CB8.getText();
+				arr1[i] = CB8.getText();
+				arr2[i] = 15;
 				i++;
 			}else {
 				i--;
@@ -302,7 +315,8 @@ public class User_Function extends JFrame implements ActionListener {
 		}
 		if(arg0.getSource() == CB9) {
 			if(CB9.isSelected()) {
-				arr[i] = CB9.getText();
+				arr1[i] = CB9.getText();
+				arr2[i] = 15;
 				i++;
 			}else {
 				i--;
@@ -310,7 +324,8 @@ public class User_Function extends JFrame implements ActionListener {
 		}
 		if(arg0.getSource() == CB10) {
 			if(CB10.isSelected()) {
-				arr[i] = CB10.getText();
+				arr1[i] = CB10.getText();
+				arr2[i] = 15;
 				i++;
 			}else {
 				i--;
@@ -318,7 +333,8 @@ public class User_Function extends JFrame implements ActionListener {
 		}
 		if(arg0.getSource() == CB11) {
 			if(CB11.isSelected()) {
-				arr[i] = CB11.getText();
+				arr1[i] = CB11.getText();
+				arr2[i] = 15;
 				i++;
 			}else {
 				i--;
@@ -326,7 +342,8 @@ public class User_Function extends JFrame implements ActionListener {
 		}
 		if(arg0.getSource() == CB12) {
 			if(CB12.isSelected()) {
-				arr[i] = CB12.getText();
+				arr1[i] = CB12.getText();
+				arr2[i] = 15;
 				i++;
 			}else {
 				i--;

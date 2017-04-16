@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import JHB.User.User_Function;
 
 public class Customer {
+	private int customerID;
 	private String customerName;
 	private String customeric;
 	private String dateOfBirth;
@@ -12,8 +13,6 @@ public class Customer {
 	private String nationally;
 	private int weight;
 	private int height;
-	
-	
 	
 	public Customer(String customeric) {
 		this.customeric = customeric;
@@ -54,7 +53,6 @@ public class Customer {
 				if (conn.Query("select * from customer where ic ='"+customeric+"'")) {
 					if (conn.EOF()== false) {
 						BL = true;
-						
 					}
 				}
 			}
@@ -65,7 +63,39 @@ public class Customer {
 		conn=null;
 		return BL;
 	}
+	
+	public void setData(String cic){
+		ConnectionJ conn = new ConnectionJ();
+		
+		try{
+			if (conn.Open("inchi")) {				
+				if (conn.Query("select * from customer where ic ='"+cic+"'")) {
+					while(conn.Rs.next()) {
+						customerID = conn.Rs.getInt("customer_id");
+						customerName = conn.Rs.getString("customer_name");
+						dateOfBirth = conn.Rs.getString("dob");
+						gender = conn.Rs.getString("gender");
+						nationally = conn.Rs.getString("nationality");
+						weight = conn.Rs.getInt("weight");
+						height = conn.Rs.getInt("height");
+					}
+				}
+			}
+		}catch(Exception e2) {
+			System.out.println("Error");
+		}
+		conn.Close();
+		conn=null;
+	}
 
+	public int getCustomerID() {
+		return customerID;
+	}
+
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+	
 	public String getCustomerName() {
 		return customerName;
 	}

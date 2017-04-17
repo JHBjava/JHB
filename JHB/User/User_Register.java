@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import JHB.Class.Customer;
+
 public class User_Register extends JFrame implements ActionListener {
 	JPanel P = new JPanel();
 	GridBagConstraints GBC = new GridBagConstraints();
@@ -33,6 +35,7 @@ public class User_Register extends JFrame implements ActionListener {
 	JTextField TF6 = new JTextField();
 	JLabel LB8 = new JLabel("Height(CM):");
 	JTextField TF7 = new JTextField();
+	JLabel LB9 = new JLabel("");
 	JButton BT1 = new JButton("Register");
 	JButton BT2 = new JButton("Cancel");
 	
@@ -61,6 +64,7 @@ public class User_Register extends JFrame implements ActionListener {
 		TF6.setFont(new Font("Serif", Font.BOLD, 25));
 		LB8.setFont(new Font("Serif", Font.BOLD, 25));
 		TF7.setFont(new Font("Serif", Font.BOLD, 25));
+		LB9.setFont(new Font("Serif", Font.BOLD, 25));
 		BT1.setFont(new Font("Serif", Font.BOLD, 25));
 		BT2.setFont(new Font("Serif", Font.BOLD, 25));
 		
@@ -135,6 +139,11 @@ public class User_Register extends JFrame implements ActionListener {
 		GBC.gridwidth = 3;
 		GBC.fill = GridBagConstraints.HORIZONTAL;
 		P.add(TF7, GBC);
+		GBC.gridx = 0;
+		GBC.gridy = 9;
+		GBC.gridwidth = 5;
+		GBC.fill = GridBagConstraints.HORIZONTAL;
+		P.add(LB9, GBC);
 		GBC.gridx = 1;
 		GBC.gridy = 8;
 		GBC.gridwidth = 1;
@@ -148,7 +157,19 @@ public class User_Register extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		//Register
 		if(arg0.getSource() == BT1) {
-			
+			try {
+				int weight = Integer.parseInt(TF6.getText());
+				int height = Integer.parseInt(TF7.getText());
+				Customer ctm = new Customer(TF1.getText(), TF2.getText(), TF3.getText(), TF4.getText(), TF5.getText(), weight, height);
+				if(ctm.AddCustomer() != false) {
+					JFrame UserFunction = new User_Function(TF2.getText());
+					this.dispose();
+				}else {
+					LB9.setText("Register Faill! Please Register again!");
+				}
+			}catch (Exception e) {
+				LB9.setText("Please fail all the blank!");
+			}
 		}
 		//Cancel
 		if(arg0.getSource() == BT2) {

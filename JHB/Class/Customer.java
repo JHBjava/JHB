@@ -18,8 +18,9 @@ public class Customer {
 		
 	}
 
-	public Customer(String customerName, String dateOfBirth, String gender, String nationally, int weight, int height) {
+	public Customer(String customerName, String customeric, String dateOfBirth, String gender, String nationally, int weight, int height) {
 		this.customerName = customerName;
+		this.customeric = customeric;
 		this.dateOfBirth = dateOfBirth;
 		this.gender = gender;
 		this.nationally = nationally;
@@ -27,18 +28,26 @@ public class Customer {
 		this.height = height;
 	}
 	
-	public void AddCustomer(){
+	public boolean AddCustomer(){
 		ConnectionJ conn = new ConnectionJ();
+		boolean BL = false;
 		
-		if (conn.Open("inchi")){
-			//String queryString = "insert into Users"+"(username, password) values"+ "(username, password)";
-			conn.Update("insert into customer(customer_name, dob, gender, nationality, weight, height)" +
-					"values ('" + customerName + "', '" + dateOfBirth + "','" + gender + "', '" +
-					nationally + "', " + weight + ", " + height + ")");
-			System.out.println("suceeful");
-			conn.Clear();
-			conn.Close();
+		try {
+			if(conn.Open("inchi")) {
+				if(conn.Update("insert into customer(ic, customer_name, dob, gender, nationality, weight, height)values ('"
+							+ customeric + "', '" + customerName + "', '" + dateOfBirth + "','" + gender + "', '"
+							+ nationally + "', " + weight + ", " + height + ")") != -1) {
+					System.out.println("suceeful");
+					BL = true;
+				}
+				conn.Clear();
+				conn.Close();
+			}
+		}catch(Exception e) {
+			System.out.println ("Update Fail");
+			BL = false;
 		}
+		return BL;
 	}
 	
 	public boolean customerData(){

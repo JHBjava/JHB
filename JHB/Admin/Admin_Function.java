@@ -47,11 +47,11 @@ public class Admin_Function extends JFrame implements ActionListener {
 		BT1.setPreferredSize(new Dimension(250, 50));
 		BT1.setFont(new Font("Serif", Font.BOLD, 25));
 		BT1.setBorderPainted(false);
-		BT2.setBackground(Color.LIGHT_GRAY);
+		BT2.setBackground(Color.GRAY);
 		BT2.setPreferredSize(new Dimension(250, 50));
 		BT2.setFont(new Font("Serif", Font.BOLD, 25));
 		BT2.setBorderPainted(false);
-		BT3.setBackground(Color.LIGHT_GRAY);
+		BT3.setBackground(Color.GRAY);
 		BT3.setPreferredSize(new Dimension(250, 50));
 		BT3.setFont(new Font("Serif", Font.BOLD, 25));
 		BT3.setBorderPainted(false);

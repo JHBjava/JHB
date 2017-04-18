@@ -33,6 +33,7 @@ public class ConnectionJ {
 	}
 	
 	public void Close(){
+        
 		try {
 			if(conn!=null)
 				conn.close();

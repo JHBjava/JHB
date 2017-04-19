@@ -18,10 +18,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import JHB.Class.Attraction;
 import JHB.Class.Customer;
 import JHB.Class.EntryRecord;
 
 public class User_Function extends JFrame implements ActionListener {
+	Attraction att1 = new Attraction();
+	Attraction att2 = new Attraction();
+	ImageIcon[] IMGIC1;
+	ImageIcon[] IMGIC2;
+	String jcdt1[], jcdt2[];
+	JLabel[] labels=new JLabel[999];
+	JCheckBox[] cb = new JCheckBox[999];
 	GridBagConstraints GBC = new GridBagConstraints();
 	JPanel P1 = new JPanel();
 	JPanel P2 = new JPanel();
@@ -75,7 +83,7 @@ public class User_Function extends JFrame implements ActionListener {
 		BT2.setFont(new Font("Serif", Font.BOLD, 25));
 		LB1.setFont(new Font("Serif", Font.BOLD, 60));
 		LB2.setFont(new Font("Serif", Font.BOLD, 60));
-		LBIMG1.setPreferredSize(new Dimension(300, 200));
+	/*	LBIMG1.setPreferredSize(new Dimension(300, 200));
 		LBIMG2.setPreferredSize(new Dimension(300, 200));
 		LBIMG3.setPreferredSize(new Dimension(300, 200));
 		LBIMG4.setPreferredSize(new Dimension(300, 200));
@@ -86,7 +94,7 @@ public class User_Function extends JFrame implements ActionListener {
 		LBIMG9.setPreferredSize(new Dimension(300, 200));
 		LBIMG10.setPreferredSize(new Dimension(300, 200));
 		LBIMG11.setPreferredSize(new Dimension(300, 200));
-		LBIMG12.setPreferredSize(new Dimension(300, 200));
+		LBIMG12.setPreferredSize(new Dimension(300, 200));*/
 		CB1.setFont(new Font("Serif", Font.BOLD, 25));
 		CB2.setFont(new Font("Serif", Font.BOLD, 25));
 		CB3.setFont(new Font("Serif", Font.BOLD, 25));
@@ -142,11 +150,114 @@ public class User_Function extends JFrame implements ActionListener {
 		P2.add(LB2, BorderLayout.NORTH);
 		P2.add(P5, BorderLayout.CENTER);
 		P3.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		P3.add(BT1);
-		P3.add(BT2);
 		P4.setLayout(new GridBagLayout());
 		P4.setPreferredSize(new Dimension(this.getWidth(), 450));
-		GBC.gridx = 0;
+		P5.setLayout(new GridBagLayout());
+	//	public void ChildrenData() {
+			att1.GetChildren();
+			jcdt1 = new String[att1.getI()];
+			IMGIC1 = new ImageIcon[att1.getI()];
+			for(int i = 0; i <= att1.getI()-1; i++) {
+			//	System.out.println(i);
+				jcdt1[i] = att1.getAttraction_name()[i].toString();
+			
+				IMGIC1[i] = new ImageIcon(att1.getImage()[i].toString());
+				labels[i]=new JLabel(IMGIC1[i]);
+				cb[i] = new JCheckBox(att1.getAttraction_name()[i].toString())	;	
+				System.out.println(cb[i].getText());
+			}
+			
+			for(int i = 0 ; i<=att1.getI()-1; i++){
+				//System.out.println(att1.getI());
+				GBC.gridx = 0+i;
+				GBC.gridy = 0;
+				System.out.println(i);
+				P4.add(labels[i], GBC);
+				if(i >0){
+				for(int j = 1 ; j <2 ; j++){
+					GBC.gridy = 1;
+					GBC.gridx = 0+i;
+					System.out.println(i+"hh");
+					P4.add(cb[i], GBC);
+					
+			//	LBIMG1.setText(String.valueOf(IMGIC1[0]));
+		/*	P1L11.setText(att1.getAttraction_name()[i].toString());
+			P1L12.setText(String.valueOf(att1.getLocationX()[0]));
+			P1L13.setText(String.valueOf(att1.getLocationY()[0]));
+			P1L14.setText(String.valueOf(att1.getLocationZ()[0]));
+			P1L15.setText(String.valueOf(att1.getMinimum_age()[0]));
+			P1L16.setText(String.valueOf(att1.getMinimum_height()[0]));
+			P1L17.setText(String.valueOf(att1.getMaximum_weight()[0]));
+			P1L18.setText(String.valueOf(att1.getDuration()[0]));
+			P1L19.setText(String.valueOf(att1.getPrice()[0]));
+			P1L20.setText(att1.getStatus()[0]);*/
+		
+	//	}
+				}	
+				}
+				else{
+					GBC.gridy = 1;
+					GBC.gridx = 0;
+					P4.add(cb[0], GBC);
+				}
+		
+			}	
+		
+		
+			att2.GetThrill();
+			
+			jcdt2 = new String[att2.getI()];
+			IMGIC2 = new ImageIcon[att2.getI()];
+			
+			for(int i = 0; i <= att2.getI()-1; i++) {
+				System.out.println(i);
+				jcdt2[i] = att2.getAttraction_name()[i].toString();
+				
+				IMGIC2[i] = new ImageIcon(att2.getImage()[i].toString());
+				
+				labels[i+6]=new JLabel(IMGIC2[i]);
+				cb[i+6] = new JCheckBox(att2.getAttraction_name()[i].toString())	;	
+				System.out.println(cb[i+6].getText());
+			}
+		
+			for(int i = 0 ; i<=att2.getI()-1; i++){
+				System.out.println("kk");
+			
+				System.out.println(att2.getI());
+				GBC.gridx = 0+i;
+				GBC.gridy = 0;
+				//System.out.println(i);
+				P5.add(labels[i+6], GBC);
+				if(i >0){
+				for(int j = 1 ; j <2 ; j++){
+					GBC.gridy = 1;
+					GBC.gridx = 0+i;
+					System.out.println(i+"hh");
+					P5.add(cb[i+6], GBC);
+					
+			
+				}	
+				}
+				else{
+					GBC.gridy = 1;
+					GBC.gridx = 0;
+					P5.add(cb[6], GBC);
+			}
+		
+			}	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		P3.add(BT1);
+		P3.add(BT2);
+		
+		/*GBC.gridx = 0;
 		GBC.gridy = 0;
 		P4.add(LBIMG1, GBC);
 		GBC.gridx = 0;
@@ -181,9 +292,9 @@ public class User_Function extends JFrame implements ActionListener {
 		P4.add(LBIMG6, GBC);
 		GBC.gridx = 5;
 		GBC.gridy = 1;
-		P4.add(CB6, GBC);
-		P5.setLayout(new GridBagLayout());
-		GBC.gridx = 0;
+		P4.add(CB6, GBC);*/
+		
+		/*GBC.gridx = 0;
 		GBC.gridy = 0;
 		P5.add(LBIMG7, GBC);
 		GBC.gridx = 0;
@@ -218,7 +329,7 @@ public class User_Function extends JFrame implements ActionListener {
 		P5.add(LBIMG12, GBC);
 		GBC.gridx = 5;
 		GBC.gridy = 1;
-		P5.add(CB12, GBC);
+		P5.add(CB12, GBC);*/
 		this.add(P1, BorderLayout.NORTH);
 		this.add(P2, BorderLayout.CENTER);
 		this.add(P3, BorderLayout.SOUTH);

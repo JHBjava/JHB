@@ -3,13 +3,19 @@ package JHB.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,6 +24,7 @@ import javax.swing.JTextField;
 import JHB.Class.Customer;
 
 public class User_Login extends JFrame implements ActionListener {
+	JDesktopPane dtp;
 	JPanel P = new JPanel();
 	GridBagConstraints GBC = new GridBagConstraints();
 	JLabel LB1 = new JLabel("User");
@@ -30,19 +37,47 @@ public class User_Login extends JFrame implements ActionListener {
 	JButton BT3 = new JButton("EXIT");
 	
 	public User_Login() {
+		dtp = new JDesktopPane() {
+			private Image image;
+			{
+			
+				try {
+					image = ImageIO.read(new File("src/JHB/g1.jpg"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			protected void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+			}
+		};
+		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setUndecorated(true);
 		this.setLayout(new BorderLayout());
 		this.setVisible(true);
-		this.add(P, BorderLayout.CENTER);
+		this.add(dtp, BorderLayout.CENTER);
+		
+		dtp.setLayout(new BorderLayout());
+		dtp.add(P, BorderLayout.CENTER);
 		
 		GBC.insets = new Insets(5, 5, 5, 5);
 		
 		LB1.setFont(new Font("Serif", Font.BOLD, 35));
+		LB1.setOpaque(true);
+		LB1.setBackground(Color.WHITE);
 		LB2.setFont(new Font("Serif", Font.BOLD, 35));
+		LB2.setOpaque(true);
+		LB2.setBackground(Color.WHITE);
 		LB3.setFont(new Font("Serif", Font.BOLD, 25));
+		LB3.setOpaque(true);
+		LB3.setBackground(Color.WHITE);
 		LB4.setFont(new Font("Serif", Font.BOLD, 25));
+		LB4.setOpaque(true);
+		LB4.setBackground(Color.WHITE);
 		TF1.setFont(new Font("Serif", Font.BOLD, 25));
 		BT1.setFont(new Font("Serif", Font.BOLD, 25));
 		BT2.setFont(new Font("Serif", Font.BOLD, 25));
@@ -52,8 +87,8 @@ public class User_Login extends JFrame implements ActionListener {
 		BT2.addActionListener(this);
 		BT3.addActionListener(this);
 		
-		P.setBackground(Color.LIGHT_GRAY);
 		P.setLayout(new GridBagLayout());
+		P.setOpaque(false);
 		
 		GBC.gridx = 1;
 		GBC.gridy = 0;

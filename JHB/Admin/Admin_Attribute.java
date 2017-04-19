@@ -434,6 +434,7 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 		jcdt1 = new String[att1.getI()];
 		IMGIC1 = new ImageIcon[att1.getI()];
 		for(int i = 0; i <= att1.getI()-1; i++) {
+			System.out.println(i);
 			jcdt1[i] = att1.getAttraction_name()[i].toString();
 			IMGIC1[i] = new ImageIcon(att1.getImage()[i].toString());
 		}

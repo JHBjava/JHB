@@ -83,18 +83,6 @@ public class User_Function extends JFrame implements ActionListener {
 		BT2.setFont(new Font("Serif", Font.BOLD, 25));
 		LB1.setFont(new Font("Serif", Font.BOLD, 60));
 		LB2.setFont(new Font("Serif", Font.BOLD, 60));
-	/*	LBIMG1.setPreferredSize(new Dimension(300, 200));
-		LBIMG2.setPreferredSize(new Dimension(300, 200));
-		LBIMG3.setPreferredSize(new Dimension(300, 200));
-		LBIMG4.setPreferredSize(new Dimension(300, 200));
-		LBIMG5.setPreferredSize(new Dimension(300, 200));
-		LBIMG6.setPreferredSize(new Dimension(300, 200));
-		LBIMG7.setPreferredSize(new Dimension(300, 200));
-		LBIMG8.setPreferredSize(new Dimension(300, 200));
-		LBIMG9.setPreferredSize(new Dimension(300, 200));
-		LBIMG10.setPreferredSize(new Dimension(300, 200));
-		LBIMG11.setPreferredSize(new Dimension(300, 200));
-		LBIMG12.setPreferredSize(new Dimension(300, 200));*/
 		CB1.setFont(new Font("Serif", Font.BOLD, 25));
 		CB2.setFont(new Font("Serif", Font.BOLD, 25));
 		CB3.setFont(new Font("Serif", Font.BOLD, 25));
@@ -153,46 +141,27 @@ public class User_Function extends JFrame implements ActionListener {
 		P4.setLayout(new GridBagLayout());
 		P4.setPreferredSize(new Dimension(this.getWidth(), 450));
 		P5.setLayout(new GridBagLayout());
-	//	public void ChildrenData() {
+		
 			att1.GetChildren();
 			jcdt1 = new String[att1.getI()];
 			IMGIC1 = new ImageIcon[att1.getI()];
 			for(int i = 0; i <= att1.getI()-1; i++) {
-			//	System.out.println(i);
 				jcdt1[i] = att1.getAttraction_name()[i].toString();
 			
 				IMGIC1[i] = new ImageIcon(att1.getImage()[i].toString());
 				labels[i]=new JLabel(IMGIC1[i]);
-				cb[i] = new JCheckBox(att1.getAttraction_name()[i].toString())	;	
-				System.out.println(cb[i].getText());
+				cb[i] = new JCheckBox(att1.getAttraction_name()[i].toString());
 			}
 			
 			for(int i = 0 ; i<=att1.getI()-1; i++){
-				//System.out.println(att1.getI());
 				GBC.gridx = 0+i;
 				GBC.gridy = 0;
-				System.out.println(i);
 				P4.add(labels[i], GBC);
 				if(i >0){
 				for(int j = 1 ; j <2 ; j++){
 					GBC.gridy = 1;
 					GBC.gridx = 0+i;
-					System.out.println(i+"hh");
 					P4.add(cb[i], GBC);
-					
-			//	LBIMG1.setText(String.valueOf(IMGIC1[0]));
-		/*	P1L11.setText(att1.getAttraction_name()[i].toString());
-			P1L12.setText(String.valueOf(att1.getLocationX()[0]));
-			P1L13.setText(String.valueOf(att1.getLocationY()[0]));
-			P1L14.setText(String.valueOf(att1.getLocationZ()[0]));
-			P1L15.setText(String.valueOf(att1.getMinimum_age()[0]));
-			P1L16.setText(String.valueOf(att1.getMinimum_height()[0]));
-			P1L17.setText(String.valueOf(att1.getMaximum_weight()[0]));
-			P1L18.setText(String.valueOf(att1.getDuration()[0]));
-			P1L19.setText(String.valueOf(att1.getPrice()[0]));
-			P1L20.setText(att1.getStatus()[0]);*/
-		
-	//	}
 				}	
 				}
 				else{
@@ -201,41 +170,28 @@ public class User_Function extends JFrame implements ActionListener {
 					P4.add(cb[0], GBC);
 				}
 		
-			}	
-		
-		
+			}
 			att2.GetThrill();
 			
 			jcdt2 = new String[att2.getI()];
 			IMGIC2 = new ImageIcon[att2.getI()];
 			
 			for(int i = 0; i <= att2.getI()-1; i++) {
-				System.out.println(i);
 				jcdt2[i] = att2.getAttraction_name()[i].toString();
-				
 				IMGIC2[i] = new ImageIcon(att2.getImage()[i].toString());
-				
 				labels[i+6]=new JLabel(IMGIC2[i]);
-				cb[i+6] = new JCheckBox(att2.getAttraction_name()[i].toString())	;	
-				System.out.println(cb[i+6].getText());
+				cb[i+6] = new JCheckBox(att2.getAttraction_name()[i].toString());
 			}
 		
 			for(int i = 0 ; i<=att2.getI()-1; i++){
-				System.out.println("kk");
-			
-				System.out.println(att2.getI());
 				GBC.gridx = 0+i;
 				GBC.gridy = 0;
-				//System.out.println(i);
 				P5.add(labels[i+6], GBC);
 				if(i >0){
 				for(int j = 1 ; j <2 ; j++){
 					GBC.gridy = 1;
 					GBC.gridx = 0+i;
-					System.out.println(i+"hh");
 					P5.add(cb[i+6], GBC);
-					
-			
 				}	
 				}
 				else{
@@ -244,92 +200,10 @@ public class User_Function extends JFrame implements ActionListener {
 					P5.add(cb[6], GBC);
 			}
 		
-			}	
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			}
 		P3.add(BT1);
 		P3.add(BT2);
 		
-		/*GBC.gridx = 0;
-		GBC.gridy = 0;
-		P4.add(LBIMG1, GBC);
-		GBC.gridx = 0;
-		GBC.gridy = 1;
-		P4.add(CB1, GBC);
-		GBC.gridx = 1;
-		GBC.gridy = 0;
-		P4.add(LBIMG2, GBC);
-		GBC.gridx = 1;
-		GBC.gridy = 1;
-		P4.add(CB2, GBC);
-		GBC.gridx = 2;
-		GBC.gridy = 0;
-		P4.add(LBIMG3, GBC);
-		GBC.gridx = 2;
-		GBC.gridy = 1;
-		P4.add(CB3, GBC);
-		GBC.gridx = 3;
-		GBC.gridy = 0;
-		P4.add(LBIMG4, GBC);
-		GBC.gridx = 3;
-		GBC.gridy = 1;
-		P4.add(CB4, GBC);
-		GBC.gridx = 4;
-		GBC.gridy = 0;
-		P4.add(LBIMG5, GBC);
-		GBC.gridx = 4;
-		GBC.gridy = 1;
-		P4.add(CB5, GBC);
-		GBC.gridx = 5;
-		GBC.gridy = 0;
-		P4.add(LBIMG6, GBC);
-		GBC.gridx = 5;
-		GBC.gridy = 1;
-		P4.add(CB6, GBC);*/
-		
-		/*GBC.gridx = 0;
-		GBC.gridy = 0;
-		P5.add(LBIMG7, GBC);
-		GBC.gridx = 0;
-		GBC.gridy = 1;
-		P5.add(CB7, GBC);
-		GBC.gridx = 1;
-		GBC.gridy = 0;
-		P5.add(LBIMG8, GBC);
-		GBC.gridx = 1;
-		GBC.gridy = 1;
-		P5.add(CB8, GBC);
-		GBC.gridx = 2;
-		GBC.gridy = 0;
-		P5.add(LBIMG9, GBC);
-		GBC.gridx = 2;
-		GBC.gridy = 1;
-		P5.add(CB9, GBC);
-		GBC.gridx = 3;
-		GBC.gridy = 0;
-		P5.add(LBIMG10, GBC);
-		GBC.gridx = 3;
-		GBC.gridy = 1;
-		P5.add(CB10, GBC);
-		GBC.gridx = 4;
-		GBC.gridy = 0;
-		P5.add(LBIMG11, GBC);
-		GBC.gridx = 4;
-		GBC.gridy = 1;
-		P5.add(CB11, GBC);
-		GBC.gridx = 5;
-		GBC.gridy = 0;
-		P5.add(LBIMG12, GBC);
-		GBC.gridx = 5;
-		GBC.gridy = 1;
-		P5.add(CB12, GBC);*/
 		this.add(P1, BorderLayout.NORTH);
 		this.add(P2, BorderLayout.CENTER);
 		this.add(P3, BorderLayout.SOUTH);
@@ -350,115 +224,6 @@ public class User_Function extends JFrame implements ActionListener {
 		if(arg0.getSource() == BT2) {
 			JFrame UserLogin = new User_Login();
 			this.dispose();
-		}
-		//Combo box
-		if(arg0.getSource() == CB1) {
-			if(CB1.isSelected()) {
-				arr1[i] = CB1.getText();
-				arr2[i] = 10;
-				i++;
-			}else {
-				i--;
-			}
-		}
-		if(arg0.getSource() == CB2) {
-			if(CB2.isSelected()) {
-				arr1[i] = CB2.getText();
-				arr2[i] = 10;
-				i++;
-			}else {
-				i--;
-			}
-		}
-		if(arg0.getSource() == CB3) {
-			if(CB3.isSelected()) {
-				arr1[i] = CB3.getText();
-				arr2[i] = 7;
-				i++;
-			}else {
-				i--;
-			}
-		}
-		if(arg0.getSource() == CB4) {
-			if(CB4.isSelected()) {
-				arr1[i] = CB4.getText();
-				arr2[i] = 10;
-				i++;
-			}else {
-				i--;
-			}
-		}
-		if(arg0.getSource() == CB5) {
-			if(CB5.isSelected()) {
-				arr1[i] = CB5.getText();
-				arr2[i] = 5;
-				i++;
-			}else {
-				i--;
-			}
-		}
-		if(arg0.getSource() == CB6) {
-			if(CB6.isSelected()) {
-				arr1[i] = CB6.getText();
-				arr2[i] = 5;
-				i++;
-			}else {
-				i--;
-			}
-		}
-		if(arg0.getSource() == CB7) {
-			if(CB7.isSelected()) {
-				arr1[i] = CB7.getText();
-				arr2[i] = 15;
-				i++;
-			}else {
-				i--;
-			}
-		}
-		if(arg0.getSource() == CB8) {
-			if(CB8.isSelected()) {
-				arr1[i] = CB8.getText();
-				arr2[i] = 15;
-				i++;
-			}else {
-				i--;
-			}
-		}
-		if(arg0.getSource() == CB9) {
-			if(CB9.isSelected()) {
-				arr1[i] = CB9.getText();
-				arr2[i] = 15;
-				i++;
-			}else {
-				i--;
-			}
-		}
-		if(arg0.getSource() == CB10) {
-			if(CB10.isSelected()) {
-				arr1[i] = CB10.getText();
-				arr2[i] = 15;
-				i++;
-			}else {
-				i--;
-			}
-		}
-		if(arg0.getSource() == CB11) {
-			if(CB11.isSelected()) {
-				arr1[i] = CB11.getText();
-				arr2[i] = 15;
-				i++;
-			}else {
-				i--;
-			}
-		}
-		if(arg0.getSource() == CB12) {
-			if(CB12.isSelected()) {
-				arr1[i] = CB12.getText();
-				arr2[i] = 15;
-				i++;
-			}else {
-				i--;
-			}
 		}
 	}
 

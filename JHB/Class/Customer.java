@@ -69,7 +69,7 @@ public class Customer {
 		return BL;
 	}
 	
-	public void setData(String cic){
+	public void ICData(String cic){
 		ConnectionJ conn = new ConnectionJ();
 		
 		try{

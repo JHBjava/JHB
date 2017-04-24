@@ -31,8 +31,9 @@ public class User_Ticket extends JFrame implements ActionListener {
 	JScrollPane SP = new JScrollPane(P1, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	JPanel P2 = new JPanel();
 	JPanel[] P3;
-	JLabel[] L1, L2, L3;
-	JLabel L4 = new JLabel("RM ");
+	JLabel L1 = new JLabel();
+	JLabel[] L2, L3;
+	JLabel L4 = new JLabel("Total: RM ");
 	JButton BT = new JButton("Close");
 	
 	public User_Ticket(String ic, String[] name, double[] price) {
@@ -55,7 +56,7 @@ public class User_Ticket extends JFrame implements ActionListener {
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setUndecorated(true);
-		this.setBounds(100, 100, 500, 330);
+		this.setBounds(200, 200, 600, 330);
 		this.setLayout(new BorderLayout());
 		this.setVisible(true);
 		this.add(dtp, BorderLayout.CENTER);
@@ -70,6 +71,7 @@ public class User_Ticket extends JFrame implements ActionListener {
 		
 		P1.setLayout(new BoxLayout(P1, BoxLayout.Y_AXIS));
 		P1.setOpaque(false);
+		P1.add(L1);
 		
 		P2.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		P2.setOpaque(false);
@@ -86,37 +88,39 @@ public class User_Ticket extends JFrame implements ActionListener {
 		GBC.insets = new Insets(5, 5, 5, 5);
 		
 		P3 = new JPanel[name.length];
-		L1 = new JLabel[name.length];
 		L2 = new JLabel[name.length];
 		L3 = new JLabel[name.length];
 		double total = 0;
 		for(int i = 0; i < name.length; i++) {
 			P3[i] = new JPanel();
 			P3[i].setLayout(new GridBagLayout());
-			P3[i].setBackground(new Color(255, 255, 255, 50));
-			L1[i] = new JLabel("IC: " + ic);
-			L1[i].setFont(new Font("Serif", Font.BOLD, 35));
-			L1[i].setOpaque(true);
-			L1[i].setBackground(Color.WHITE);
-			L2[i] = new JLabel(name[i]);
-			L2[i].setFont(new Font("Serif", Font.BOLD, 35));
-			L2[i].setOpaque(true);
-			L2[i].setBackground(Color.WHITE);
-			L3[i] = new JLabel("RM " + String.valueOf(price[i]));
-			L3[i].setFont(new Font("Serif", Font.BOLD, 35));
-			L3[i].setOpaque(true);
-			L3[i].setBackground(Color.WHITE);
-			GBC.gridx = 0;
-			GBC.gridy = 0;
-			P3[i].add(L1[i], GBC);
-			GBC.gridx = 1;
-			GBC.gridy = 1;
-			P3[i].add(L2[i], GBC);
-			GBC.gridx = 2;
-			GBC.gridy = 1;
-			P3[i].add(L3[i], GBC);
+			P3[i].setOpaque(false);
+			if(i == 0) {
+				L1.setText("IC Number: " + ic);
+				L1.setFont(new Font("Serif", Font.BOLD, 35));
+				L1.setOpaque(true);
+				L1.setBackground(Color.WHITE);
+				GBC.gridx = 0;
+				GBC.gridy = 0;
+				P3[i].add(L1, GBC);
+			}else{
+				L2[i] = new JLabel(name[i]);
+				L2[i].setFont(new Font("Serif", Font.BOLD, 35));
+				L2[i].setOpaque(true);
+				L2[i].setBackground(Color.WHITE);
+				L3[i] = new JLabel("RM " + String.valueOf(price[i]));
+				L3[i].setFont(new Font("Serif", Font.BOLD, 35));
+				L3[i].setOpaque(true);
+				L3[i].setBackground(Color.WHITE);
+				GBC.gridx = 0;
+				GBC.gridy = 0;
+				P3[i].add(L2[i], GBC);
+				GBC.gridx = 1;
+				GBC.gridy = 0;
+				P3[i].add(L3[i], GBC);
+				total += price[i];
+			}
 			P1.add(P3[i]);
-			total += price[i];
 		}
 		L4.setText(L4.getText() + total);
 	}

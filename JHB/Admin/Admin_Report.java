@@ -56,6 +56,7 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 		GetDateData();
 		l1 = new JLabel("total income:");
 		jc1 = new JComboBox(jcer1);
+		jc1.setFont(new Font("Serif", Font.BOLD, 30));
 		
 		DesktopPane.setBackground(Color.LIGHT_GRAY);
 		panel1.setBackground(Color.LIGHT_GRAY);
@@ -69,13 +70,14 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 	for(int i = 0; i <= er1.getI()-1; i++) {
 		
 			labelsname[i]=new JLabel(er1.getAttractionName()[i].toString());
+			labelsname[i].setFont(new Font("Serif", Font.BOLD, 30));
 			labelsnumber[i]=new JLabel(er1.getAttractionName()[i].toString());
-		
+			labelsnumber[i].setFont(new Font("Serif", Font.BOLD, 30));
 	}
 		for(int i = 0 ; i<=er1.getI()-1; i++){
 			GBC.gridx = 0;
 			GBC.gridy = 0+i+1;
-			labelsname[i].setFont(new Font("Serif", Font.BOLD, 17));
+			labelsname[i].setFont(new Font("Serif", Font.BOLD, 30));
 			DesktopPane.add(labelsname[i], GBC);
 			
 			g++;
@@ -85,16 +87,15 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 		for(int i = 0 ; i<=er1.getI()-1; i++){
 			GBC.gridx = 2;
 			GBC.gridy = 0+i+1;
-			labelsnumber[i].setFont(new Font("Serif", Font.BOLD, 17));
+			labelsnumber[i].setFont(new Font("Serif", Font.BOLD, 30));
 			DesktopPane.add(labelsnumber[i], GBC);
-			
 	
 		}
 		if (g>er1.getI()-1){
 			System.out.println("vv"+g);
 			GBC.gridx = 0;
 			GBC.gridy = 0+g+1;
-			l1.setFont(new Font("Serif", Font.BOLD, 17));
+			l1.setFont(new Font("Serif", Font.BOLD, 30));
 			l1.setText(" ");
 			DesktopPane.add(l1, GBC);
 			f++;
@@ -104,14 +105,11 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 			GBC.gridx = 0;
 			GBC.gridy = 0+f+1;
 			l2.setText(" ");
-			l2.setFont(new Font("Serif", Font.BOLD, 17));
+			l2.setFont(new Font("Serif", Font.BOLD, 30));
 			DesktopPane.add(l2, GBC);
 			f++;
 		}
 		
-		
-	
-	
 		GBC.gridx = 1;
 		GBC.gridy = 0;
 		GBC.anchor = GridBagConstraints.NORTH;
@@ -127,21 +125,13 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 		///GBC.fill = GridBagConstraints.HORIZONTAL;
 		//GBC.gridwidth = 3;
 		
-	
-		
 		panel1.add(l3, GBC);
-		l3.setFont(new Font("Serif", Font.BOLD, 17));
+		l3.setFont(new Font("Serif", Font.BOLD, 30));
 		GBC.anchor = GridBagConstraints.NORTH;
 		GBC.weighty = 0.1;
 		DesktopPane.add(panel1,GBC);
-		
-		
-		
-		
 		this.add(DesktopPane);
 		this.setVisible(true);
-		
-		
 	}
 	
 	public void ChildrenData() {
@@ -151,10 +141,7 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 		for(int i = 0; i <= att1.getI()-1; i++) {
 			System.out.println(i);
 			jcdt1[i] = att1.getAttraction_name()[i].toString();
-		
-		
-	
-		System.out.println(att1.getAttraction_name()[i].toString());
+			System.out.println(att1.getAttraction_name()[i].toString());
 		}
 	}
 	public void ThrillData() {
@@ -163,7 +150,7 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 		
 		for(int i = 0; i <= att2.getI()-1; i++) {
 			jcdt2[i] = att2.getAttraction_name()[i].toString();
-					}
+		}
 		
 		System.out.println(att2.getAttraction_name()[0].toString());
 		
@@ -176,21 +163,14 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 			System.out.println(jcer1+"kkk");
 			System.out.println(jcer1[i]+"kk");
 			}
-		
-	
-		
 	}
 	
-	
-	
-
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
 		if (arg0.getSource() == jc1) {
 			f=0;
 			g=0;
-			
 			
 			System.out.println("stop");
 			String date1 = (String)jc1.getSelectedItem();
@@ -206,31 +186,25 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 			 er= new EntryRecord(date1);
 			er.GetAllAttraction();
 			
-			
-			
-			
 			for(int i = 0; i <= er.getI()+1; i++) {
 				System.out.println(er.getI()-1+"er.get");
 				labelsname[i]=new JLabel(er.getAttractionName()[i].toString());
-				
+				labelsname[i].setFont(new Font("Serif", Font.BOLD, 30));
 				 numbercount[i] = Integer.toString(er.getCountNumber()[i]);
 				
 				//	calllabel(er.getAttractionName()[i].toString(),numbercount[i] );
 				 labelsnumber[i]=new JLabel(numbercount[i].toString());
+				 labelsnumber[i].setFont(new Font("Serif", Font.BOLD, 30));
 					labelsname[i]=new JLabel(er.getAttractionName()[i].toString());
 					
 				}
 				
-			
-			
-			
-			
 		for(int i = 0 ; i<=er.getI()+1; i++){
 			System.out.println("go into2"+er.getI());
 				GBC.gridx = 0;
 				GBC.gridy = 0+i+1;
 			//	System.out.println(labelsname[i]+"mmmmmmmmmmm");
-				labelsname[i].setFont(new Font("Serif", Font.BOLD, 17));
+				labelsname[i].setFont(new Font("Serif", Font.BOLD, 30));
 				
 				//DesktopPane.add(labelsname[i], GBC);
 			//	labelsname[i].setText(er.getAttractionName()[i].toString());
@@ -238,8 +212,6 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 				
 				DesktopPane.add(labelsname[i],GBC);
 			
-			
-				
 				g++;
 				f++;
 				h=g;
@@ -258,7 +230,7 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 				numbercount[i] = Double.toString(er.getTotalpricedouble()[i]);
 				
 				labelsnumber[i]=new JLabel(numbercount[i].toString());
-				labelsnumber[i].setFont(new Font("Serif", Font.BOLD, 17));
+				labelsnumber[i].setFont(new Font("Serif", Font.BOLD, 30));
 				
 				DesktopPane.add(labelsnumber[i], GBC);
 			} else {
@@ -266,7 +238,7 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 				 labelsnumber[i]=new JLabel(numbercount[i].toString());
 				GBC.gridx = 2;
 				GBC.gridy = 0+i+1;
-				labelsnumber[i].setFont(new Font("Serif", Font.BOLD, 17));
+				labelsnumber[i].setFont(new Font("Serif", Font.BOLD, 30));
 				labelsnumber[i].setText(numbercount[i].toString());
 				System.out.println(numbercount[i].toString()+"people");
 				
@@ -275,8 +247,6 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 			}	
 				
 			}
-			
-			
 			
 				System.out.println("through");
 				System.out.println("vv"+g+"bb"+er.getI());
@@ -289,13 +259,9 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 				
 			//	this.add(DesktopPane);
 				
-			
 				System.out.println(f+"lllf");
 				f++;
 				
-			
-			
-			
 			if (f>g){
 				System.out.println("vvg"+g);
 				GBC.gridx = 0;
@@ -304,34 +270,11 @@ public class Admin_Report extends JInternalFrame implements ActionListener {
 				l2.setFont(new Font("Serif", Font.BOLD, 17));
 				//DesktopPane.add(labelsnumber[0], GBC);
 				
-				
-				
 			}
 			
-			
-			
+			 }
 			
 			 }
 			
-			
-			 }
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		}
-		
-	}
-
+		}		
+}

@@ -4,9 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,52 +20,30 @@ import JHB.Class.Customer;
 import JHB.Class.EntryRecord;
 
 public class User_Function extends JFrame implements ActionListener {
-	Attraction att1 = new Attraction();
-	Attraction att2 = new Attraction();
-	ImageIcon[] IMGIC1;
-	ImageIcon[] IMGIC2;
-	String jcdt1[], jcdt2[];
-	JLabel[] labels=new JLabel[999];
-	JCheckBox[] cb = new JCheckBox[999];
-	GridBagConstraints GBC = new GridBagConstraints();
 	JPanel P1 = new JPanel();
 	JPanel P2 = new JPanel();
 	JPanel P3 = new JPanel();
 	JPanel P4 = new JPanel();
+	JScrollPane SP1 = new JScrollPane(P4, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	JPanel P5 = new JPanel();
+	JScrollPane SP2 = new JScrollPane(P5, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	JButton BT1 = new JButton("Buy Ticket");
 	JButton BT2 = new JButton("Exit");
 	JLabel LB1 = new JLabel("Children");
 	JLabel LB2 = new JLabel("Thrill");
-	JLabel LBIMG1 = new JLabel(new ImageIcon("src/JHB/children/Cosmic Coaster.jpg"));
-	JLabel LBIMG2 = new JLabel(new ImageIcon("src/JHB/children/Flying Ace Balloon Race.jpg"));
-	JLabel LBIMG3 = new JLabel(new ImageIcon("src/JHB/children/Linus Launcher.jpg"));
-	JLabel LBIMG4 = new JLabel(new ImageIcon("src/JHB/children/Linus' Beetle Bugs.jpg"));
-	JLabel LBIMG5 = new JLabel(new ImageIcon("src/JHB/children/Lucys Tugboat.jpg"));
-	JLabel LBIMG6 = new JLabel(new ImageIcon("src/JHB/children/Pirate Train.jpg"));
-	JLabel LBIMG7 = new JLabel(new ImageIcon("src/JHB/thrill/Delirium.jpg"));
-	JLabel LBIMG8 = new JLabel(new ImageIcon("src/JHB/thrill/drowtower.jpg"));
-	JLabel LBIMG9 = new JLabel(new ImageIcon("src/JHB/thrill/Monsoon 360.jpg"));
-	JLabel LBIMG10 = new JLabel(new ImageIcon("src/JHB/thrill/Roller coasters .jpg"));
-	JLabel LBIMG11 = new JLabel(new ImageIcon("src/JHB/thrill/thrillcone.jpg"));
-	JLabel LBIMG12 = new JLabel(new ImageIcon("src/JHB/thrill/Vortex.jpg"));
-	JCheckBox CB1 = new JCheckBox("Cosmic Coaster");
-	JCheckBox CB2 = new JCheckBox("Flying Ace Balloon Race");
-	JCheckBox CB3 = new JCheckBox("Linus Launcher");
-	JCheckBox CB4 = new JCheckBox("Linus Beetle Bug");
-	JCheckBox CB5 = new JCheckBox("Lucy Tugboat");
-	JCheckBox CB6 = new JCheckBox("Pirate Train");
-	JCheckBox CB7 = new JCheckBox("Deliriun");
-	JCheckBox CB8 = new JCheckBox("Drowtower");
-	JCheckBox CB9 = new JCheckBox("Monsoon");
-	JCheckBox CB10 = new JCheckBox("Roller Coaster");
-	JCheckBox CB11 = new JCheckBox("Thrillcone");
-	JCheckBox CB12 = new JCheckBox("Vortex");
 	
-	String[] arr1 = new String[11];
-	double[] arr2 = new double[11];
+	String[] arrname1, arrname2, arrname1a, arrname2b;
+	double[] arrprice1, arrprice2, arrprice1a, arrprice2b;
+	int[] arrid1, arrid2, arrid1a, arrid2b;
 	String cic = null;
-	int i = 0;
+	int Li = 0, Li2 = 0;
+	int[] num;
+	Attraction att1 = new Attraction();
+	Attraction att2 = new Attraction();
+	JPanel[] LPP1, LPP2;
+	ImageIcon[] IMGIC1, IMGIC2;
+	JLabel[] label1, label2;
+	JCheckBox[] cb1, cb2;
 	
 	public User_Function(String ic) {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,130 +52,124 @@ public class User_Function extends JFrame implements ActionListener {
 		this.setLayout(new BorderLayout());
 		this.setVisible(true);
 		
-		GBC.insets = new Insets(5, 5, 5, 5);
+		cic = ic;
 		
 		BT1.setFont(new Font("Serif", Font.BOLD, 25));
 		BT2.setFont(new Font("Serif", Font.BOLD, 25));
 		LB1.setFont(new Font("Serif", Font.BOLD, 60));
 		LB2.setFont(new Font("Serif", Font.BOLD, 60));
-		CB1.setFont(new Font("Serif", Font.BOLD, 25));
-		CB2.setFont(new Font("Serif", Font.BOLD, 25));
-		CB3.setFont(new Font("Serif", Font.BOLD, 25));
-		CB4.setFont(new Font("Serif", Font.BOLD, 25));
-		CB5.setFont(new Font("Serif", Font.BOLD, 25));
-		CB6.setFont(new Font("Serif", Font.BOLD, 25));
-		CB7.setFont(new Font("Serif", Font.BOLD, 25));
-		CB8.setFont(new Font("Serif", Font.BOLD, 25));
-		CB9.setFont(new Font("Serif", Font.BOLD, 25));
-		CB10.setFont(new Font("Serif", Font.BOLD, 25));
-		CB11.setFont(new Font("Serif", Font.BOLD, 25));
-		CB12.setFont(new Font("Serif", Font.BOLD, 25));
-		
-		cic = ic;
-		Customer ctm = new Customer(ic);
-		ctm.setData(ic);
-		if(ctm.getHeight() < 100 || ctm.getWeight() > 30) {
-			CB1.setEnabled(false);
-			CB2.setEnabled(false);
-			CB3.setEnabled(false);
-			CB4.setEnabled(false);
-			CB5.setEnabled(false);
-			CB6.setEnabled(false);
-		}
-		if(ctm.getHeight() < 160 || ctm.getWeight() > 80) {
-			CB7.setEnabled(false);
-			CB8.setEnabled(false);
-			CB9.setEnabled(false);
-			CB10.setEnabled(false);
-			CB11.setEnabled(false);
-			CB12.setEnabled(false);
-		}
 		
 		BT1.addActionListener(this);
 		BT2.addActionListener(this);
-		CB1.addActionListener(this);
-		CB2.addActionListener(this);
-		CB3.addActionListener(this);
-		CB4.addActionListener(this);
-		CB5.addActionListener(this);
-		CB6.addActionListener(this);
-		CB7.addActionListener(this);
-		CB8.addActionListener(this);
-		CB9.addActionListener(this);
-		CB10.addActionListener(this);
-		CB11.addActionListener(this);
-		CB12.addActionListener(this);
 		
 		P1.setLayout(new BorderLayout());
 		P1.add(LB1, BorderLayout.NORTH);
-		P1.add(P4, BorderLayout.CENTER);
+		P1.add(SP1, BorderLayout.CENTER);
 		P2.setLayout(new BorderLayout());
 		P2.add(LB2, BorderLayout.NORTH);
-		P2.add(P5, BorderLayout.CENTER);
+		P2.add(SP2, BorderLayout.CENTER);
 		P3.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		P4.setLayout(new GridBagLayout());
-		P4.setPreferredSize(new Dimension(this.getWidth(), 450));
-		P5.setLayout(new GridBagLayout());
+		P4.setLayout(new FlowLayout(FlowLayout.LEFT));
+		SP1.setPreferredSize(new Dimension(this.getWidth(), 450));
+		P5.setLayout(new FlowLayout(FlowLayout.LEFT));
+		SP2.setPreferredSize(new Dimension(this.getWidth(), 450));
 		
-			att1.GetChildren();
-			jcdt1 = new String[att1.getI()];
-			IMGIC1 = new ImageIcon[att1.getI()];
-			for(int i = 0; i <= att1.getI()-1; i++) {
-				jcdt1[i] = att1.getAttraction_name()[i].toString();
-			
-				IMGIC1[i] = new ImageIcon(att1.getImage()[i].toString());
-				labels[i]=new JLabel(IMGIC1[i]);
-				cb[i] = new JCheckBox(att1.getAttraction_name()[i].toString());
-			}
-			
-			for(int i = 0 ; i<=att1.getI()-1; i++){
-				GBC.gridx = 0+i;
-				GBC.gridy = 0;
-				P4.add(labels[i], GBC);
-				if(i >0){
-				for(int j = 1 ; j <2 ; j++){
-					GBC.gridy = 1;
-					GBC.gridx = 0+i;
-					P4.add(cb[i], GBC);
-				}	
+		att1.GetChildren();
+		att2.GetThrill();
+		Customer CTM = new Customer();
+		CTM.ICData(cic);
+		arrid1 = new int[att1.getI()];
+		arrid2 = new int[att2.getI()];
+		arrid1a = new int[att1.getI()];
+		arrid2b = new int[att2.getI()];
+		arrname1 = new String[att1.getI()];
+		arrname2 = new String[att2.getI()];
+		arrname1a = new String[att1.getI()];
+		arrname2b = new String[att2.getI()];
+		arrprice1 = new double[att1.getI()];
+		arrprice2 = new double[att2.getI()];
+		arrprice1a = new double[att1.getI()];
+		arrprice2b = new double[att2.getI()];
+		LPP1 = new JPanel[att1.getI()];
+		LPP2 = new JPanel[att2.getI()];
+		IMGIC1 = new ImageIcon[att1.getI()];
+		IMGIC2 = new ImageIcon[att2.getI()];
+		label1 = new JLabel[att1.getI()];
+		label2 = new JLabel[att2.getI()];
+		cb1 = new JCheckBox[att1.getI()];
+		cb2 = new JCheckBox[att2.getI()];
+		num = new int[att1.getI()];
+		
+		for(int i = 0; i <= att1.getI()-1; i++) {
+			arrid1[i] = att1.getAttraction_id()[i];
+			arrname1[i] = att1.getAttraction_name()[i];
+			arrprice1[i] = att1.getPrice()[i];
+			LPP1[i] = new JPanel();
+			LPP1[i].setLayout(new BorderLayout());
+			IMGIC1[i] = new ImageIcon(att1.getImage()[i]);
+			label1[i] = new JLabel(IMGIC1[i]);
+			label1[i].setPreferredSize(new Dimension(300, 250));
+			cb1[i] = new JCheckBox(att1.getAttraction_name()[i]);
+			cb1[i].setFont(new Font("Serif", Font.BOLD, 35));
+			cb1[i].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					for(int i = 0; i < arrid1.length; i++) {
+						if(arg0.getActionCommand().equals(arrname1[i].toString())) {
+							if(cb1[i].isSelected()) {
+								arrname1a[Li] = cb1[i].getText();
+								arrprice1a[Li] = arrprice1[i];
+								arrid1a[Li] = arrid1[i];
+								Li++;
+							}else {
+								Li--;
+							}
+						}
+					}
 				}
-				else{
-					GBC.gridy = 1;
-					GBC.gridx = 0;
-					P4.add(cb[0], GBC);
+			});
+			if(CTM.getHeight() < att1.getMinimum_height()[i] || CTM.getWeight() > att1.getMaximum_weight()[i]) {
+				cb1[i].setEnabled(false);
+			}
+			LPP1[i].add(label1[i], BorderLayout.CENTER);
+			LPP1[i].add(cb1[i], BorderLayout.SOUTH);
+			P4.add(LPP1[i]);
+		}
+		
+		for(int i = 0; i <= att2.getI()-1; i++) {
+			arrid2[i] = att2.getAttraction_id()[i];
+			arrname2[i] = att2.getAttraction_name()[i];
+			arrprice2[i] = att2.getPrice()[i];
+			LPP2[i] = new JPanel();
+			LPP2[i].setLayout(new BorderLayout());
+			IMGIC2[i] = new ImageIcon(att2.getImage()[i]);
+			label2[i] = new JLabel(IMGIC2[i]);
+			label2[i].setPreferredSize(new Dimension(300, 250));
+			cb2[i] = new JCheckBox(att2.getAttraction_name()[i]);
+			cb2[i].setFont(new Font("Serif", Font.BOLD, 35));
+			cb2[i].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					for(int i = 0; i < arrid2.length; i++) {
+						if(arg0.getActionCommand().equals(arrname2[i].toString())) {
+							if(cb2[i].isSelected()) {
+								arrname2b[Li2] = cb2[i].getText();
+								arrprice2b[Li2] = arrprice2[i];
+								arrid2b[Li2] = arrid2[i];
+								Li2++;
+							}else {
+								Li2--;
+							}
+						}
+					}
 				}
+			});
+			if(CTM.getHeight() < att2.getMinimum_height()[i] || CTM.getWeight() > att2.getMaximum_weight()[i]) {
+				cb2[i].setEnabled(false);
+			}
+			LPP2[i].add(label2[i], BorderLayout.CENTER);
+			LPP2[i].add(cb2[i], BorderLayout.SOUTH);
+			P5.add(LPP2[i]);
+		}
 		
-			}
-			att2.GetThrill();
-			
-			jcdt2 = new String[att2.getI()];
-			IMGIC2 = new ImageIcon[att2.getI()];
-			
-			for(int i = 0; i <= att2.getI()-1; i++) {
-				jcdt2[i] = att2.getAttraction_name()[i].toString();
-				IMGIC2[i] = new ImageIcon(att2.getImage()[i].toString());
-				labels[i+6]=new JLabel(IMGIC2[i]);
-				cb[i+6] = new JCheckBox(att2.getAttraction_name()[i].toString());
-			}
-		
-			for(int i = 0 ; i<=att2.getI()-1; i++){
-				GBC.gridx = 0+i;
-				GBC.gridy = 0;
-				P5.add(labels[i+6], GBC);
-				if(i >0){
-				for(int j = 1 ; j <2 ; j++){
-					GBC.gridy = 1;
-					GBC.gridx = 0+i;
-					P5.add(cb[i+6], GBC);
-				}	
-				}
-				else{
-					GBC.gridy = 1;
-					GBC.gridx = 0;
-					P5.add(cb[6], GBC);
-			}
-		
-			}
 		P3.add(BT1);
 		P3.add(BT2);
 		
@@ -213,12 +182,24 @@ public class User_Function extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		//Buy Ticket
 		if(arg0.getSource() == BT1) {
-			int ii = 0;
-			while(ii < i) {
-				EntryRecord ER = new EntryRecord(arr1[ii], cic, arr2[ii]);
+			String[] name = new String[Li + Li2];
+			double[] price = new double[Li + Li2];
+			int A = 0;
+			for(int i = 0; i < Li; i++) {
+				EntryRecord ER = new EntryRecord(arrname1a[i], cic, arrprice1a[i]);
+				name[A] = arrname1a[i];
+				price[A] = arrprice1a[i];
+				A++;
 				ER.insertData();
-				ii++;
 			}
+			for(int i = 0; i < Li2; i++) {
+				EntryRecord ER = new EntryRecord(arrname2b[i], cic, arrprice2b[i]);
+				name[A] = arrname2b[i];
+				price[A] = arrprice2b[i];
+				A++;
+				ER.insertData();
+			}
+			JFrame UserTicket = new User_Ticket(cic, name, price);
 		}
 		//Exit
 		if(arg0.getSource() == BT2) {

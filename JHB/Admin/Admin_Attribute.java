@@ -45,7 +45,7 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 	JLabel P1L8 = new JLabel("Duration:");
 	JLabel P1L9 = new JLabel("Price:");
 	JLabel P1L10 = new JLabel("Status:");
-	JLabel P1L0;
+	JLabel P1L0 = new JLabel();
 	JLabel P1MSG = new JLabel("");
 	
 	JLabel P2LID = new JLabel("ID: ");
@@ -59,7 +59,7 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 	JLabel P2L8 = new JLabel("Duration:");
 	JLabel P2L9 = new JLabel("Price:");
 	JLabel P2L10 = new JLabel("Status:");
-	JLabel P2L0;
+	JLabel P2L0 = new JLabel();
 	JLabel P2MSG = new JLabel("");
 	
 	JLabel P3T = new JLabel("Add Attraction");
@@ -449,7 +449,7 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 		P1L18.setText(String.valueOf(att1.getDuration()[0]));
 		P1L19.setText(String.valueOf(att1.getPrice()[0]));
 		P1L20.setText(att1.getStatus()[0]);
-		P1L0 = new JLabel(IMGIC1[0]);
+		P1L0.setIcon(IMGIC1[0]);
 	}
 	
 	public void ThrillData() {
@@ -471,7 +471,7 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 		P2L18.setText(String.valueOf(att2.getDuration()[0]));
 		P2L19.setText(String.valueOf(att2.getPrice()[0]));
 		P2L20.setText(att2.getStatus()[0]);
-		P2L0 = new JLabel(IMGIC2[0]);
+		P2L0.setIcon(IMGIC1[0]);
 	}
 	
 	public void Refreshdata() {
@@ -538,6 +538,7 @@ public class Admin_Attribute extends JInternalFrame implements ActionListener {
 					Integer.parseInt(P3L17.getText()), Integer.parseInt(P3L18.getText()), Double.parseDouble(P3L19.getText()),
 					P3CB1.getSelectedItem().toString(), P3L21.getText(), Integer.parseInt(P3CB2.getSelectedItem().toString()));
 			Refreshdata();
+			P3MSG.setText("Add New Attraction Success!");
 		}
 		//edit
 		if(arg0.getSource() == P1BT1) {

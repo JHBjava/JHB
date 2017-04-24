@@ -13,7 +13,7 @@ public class ConnectionJ {
 	
 	public boolean Open(String sDB) {
 		//atempt to load the jdbc.obdc driver
-        String url = "jdbc:sqlserver://TANBENGYAW;databaseName=inchi;integratedSecurity=true";
+        String url = "jdbc:sqlserver://LAPTOP-HighPro\\SQLEXPRESS;databaseName=inchi;integratedSecurity=true";
 		try {
 			//Class.forName(DEFAULT_DRIVER);
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

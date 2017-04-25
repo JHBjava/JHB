@@ -42,7 +42,7 @@ public class User_Function extends JFrame implements ActionListener {
 	Attraction att2 = new Attraction();
 	JPanel[] LPP1, LPP2;
 	ImageIcon[] IMGIC1, IMGIC2;
-	JLabel[] label1, label2;
+	JLabel[] label1, label2, labelP1, labelP2;
 	JCheckBox[] cb1, cb2;
 	
 	public User_Function(String ic) {
@@ -96,6 +96,8 @@ public class User_Function extends JFrame implements ActionListener {
 		IMGIC2 = new ImageIcon[att2.getI()];
 		label1 = new JLabel[att1.getI()];
 		label2 = new JLabel[att2.getI()];
+		labelP1 = new JLabel[att1.getI()];
+		labelP2 = new JLabel[att2.getI()];
 		cb1 = new JCheckBox[att1.getI()];
 		cb2 = new JCheckBox[att2.getI()];
 		num = new int[att1.getI()];
@@ -109,6 +111,8 @@ public class User_Function extends JFrame implements ActionListener {
 			IMGIC1[i] = new ImageIcon(att1.getImage()[i]);
 			label1[i] = new JLabel(IMGIC1[i]);
 			label1[i].setPreferredSize(new Dimension(300, 250));
+			labelP1[i] = new JLabel("RM " + att1.getPrice()[i]);
+			labelP1[i].setFont(new Font("Serif", Font.BOLD, 35));
 			cb1[i] = new JCheckBox(att1.getAttraction_name()[i]);
 			cb1[i].setFont(new Font("Serif", Font.BOLD, 35));
 			cb1[i].addActionListener(new ActionListener() {
@@ -130,8 +134,9 @@ public class User_Function extends JFrame implements ActionListener {
 			if(CTM.getHeight() < att1.getMinimum_height()[i] || CTM.getWeight() > att1.getMaximum_weight()[i]) {
 				cb1[i].setEnabled(false);
 			}
-			LPP1[i].add(label1[i], BorderLayout.CENTER);
-			LPP1[i].add(cb1[i], BorderLayout.SOUTH);
+			LPP1[i].add(label1[i], BorderLayout.NORTH);
+			LPP1[i].add(cb1[i], BorderLayout.CENTER);
+			LPP1[i].add(labelP1[i], BorderLayout.SOUTH);
 			P4.add(LPP1[i]);
 		}
 		
@@ -144,6 +149,8 @@ public class User_Function extends JFrame implements ActionListener {
 			IMGIC2[i] = new ImageIcon(att2.getImage()[i]);
 			label2[i] = new JLabel(IMGIC2[i]);
 			label2[i].setPreferredSize(new Dimension(300, 250));
+			labelP2[i] = new JLabel("RM " + att2.getPrice()[i]);
+			labelP2[i].setFont(new Font("Serif", Font.BOLD, 35));
 			cb2[i] = new JCheckBox(att2.getAttraction_name()[i]);
 			cb2[i].setFont(new Font("Serif", Font.BOLD, 35));
 			cb2[i].addActionListener(new ActionListener() {
@@ -165,8 +172,9 @@ public class User_Function extends JFrame implements ActionListener {
 			if(CTM.getHeight() < att2.getMinimum_height()[i] || CTM.getWeight() > att2.getMaximum_weight()[i]) {
 				cb2[i].setEnabled(false);
 			}
-			LPP2[i].add(label2[i], BorderLayout.CENTER);
-			LPP2[i].add(cb2[i], BorderLayout.SOUTH);
+			LPP2[i].add(label2[i], BorderLayout.NORTH);
+			LPP2[i].add(cb2[i], BorderLayout.CENTER);
+			LPP2[i].add(labelP2[i], BorderLayout.SOUTH);
 			P5.add(LPP2[i]);
 		}
 		
